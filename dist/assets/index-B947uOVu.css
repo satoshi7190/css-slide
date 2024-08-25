@@ -373,7 +373,7 @@ textarea:not([rows]) {
     left: 10%;
     width: 30%;
     aspect-ratio: 1/1;
-    background: url(./assets/icon-DhKO3nVc.png) no-repeat center center/cover;
+    background: url(icon-DhKO3nVc.png) no-repeat center center/cover;
     border-radius: 50%;
     opacity: 0;
 }
@@ -645,7 +645,7 @@ textarea:not([rows]) {
 }
 .slide-photoanddescription:has(.title > input[type='checkbox']:checked) > .photo {
     clip-path: polygon(25% 0%, 100% 0, 100% 100%, 0% 100%);
-    background: url(./assets/cat-BOvhalfj.jpg) no-repeat center center/100%;
+    background: url(cat-BOvhalfj.jpg) no-repeat center center/100%;
     opacity: 1;
 }
 .slide-photoanddescription > .description {
@@ -699,7 +699,7 @@ textarea:not([rows]) {
     width: 60%;
     height: 100%;
     clip-path: polygon(25% 0%, 100% 0, 100% 0, 26% 0);
-    background: url(./assets/cat-BOvhalfj.jpg) no-repeat center center/130%;
+    background: url(cat-BOvhalfj.jpg) no-repeat center center/130%;
     opacity: 0;
     transition: all 0.5s 0.3s;
 }
@@ -1755,7 +1755,7 @@ textarea:not([rows]) {
     opacity: 0;
 }
 .slide-3card > .card-container1 > .back {
-    background: url(./assets/hourensou1_houkoku-BxUc8pW5.png) no-repeat center center/70%;
+    background: url(hourensou1_houkoku-BxUc8pW5.png) no-repeat center center/70%;
     background-color: #fff;
 }
 .slide-3card > .card-container1 > .front:before {
@@ -1777,7 +1777,7 @@ textarea:not([rows]) {
     opacity: 0;
 }
 .slide-3card > .card-container2 > .back {
-    background: url(./assets/hourensou2_renraku-Bmk2iC3e.png) no-repeat center center/70%;
+    background: url(hourensou2_renraku-Bmk2iC3e.png) no-repeat center center/70%;
     background-color: #fff;
 }
 .slide-3card > .card-container2 > .front:before {
@@ -1799,7 +1799,7 @@ textarea:not([rows]) {
     opacity: 0;
 }
 .slide-3card > .card-container3 > .back {
-    background: url(./assets/hourensou3_soudan-DVM7Hg7W.png) no-repeat center center/contain;
+    background: url(hourensou3_soudan-DVM7Hg7W.png) no-repeat center center/contain;
     background-color: #fff;
 }
 .slide-3card > .card-container3 > .front:before {
