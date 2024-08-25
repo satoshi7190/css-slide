@@ -1,0 +1,208 @@
+@use '../utils' as utils;
+$name: '3d';
+.slide-#{$name} {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+
+    input[type='checkbox'] {
+        display: none;
+    }
+
+    > .title {
+        z-index: 1;
+        cursor: pointer;
+        transition: all 0.5s;
+        @include utils.slideTitle1-in('3Dボックス', #000000);
+    }
+
+    > .title:has(input[type='checkbox']:checked) {
+        @include utils.slideTitle1('3Dボックス', #000000);
+    }
+
+    &:has(.title > input[type='checkbox']:checked) {
+        > .box-main {
+            opacity: 1;
+            transform: rotate3d(1, 1, 1, 1turn);
+            scale: 1;
+
+            .box {
+                opacity: 1;
+            }
+        }
+    }
+
+    > .box-main {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 25%;
+        aspect-ratio: 1 / 1;
+        opacity: 1;
+        transition: all 1s 0.3s;
+        transform-origin: center center;
+        scale: 0.3;
+        translate: -50% -50%;
+        transform-style: preserve-3d;
+
+        @keyframes slide-3d-rotate {
+            0% {
+                opacity: 0;
+                transform: rotate3d(1, 1, 1, 0turn);
+                scale: 0;
+            }
+            100% {
+                opacity: 1;
+                transform: rotate3d(1, 1, 1, 2turn);
+                scale: 1;
+            }
+        }
+
+        $z: 12.5vw;
+
+        @mixin box() {
+            position: absolute;
+            box-sizing: border-box;
+            width: 100%;
+            height: 100%;
+            border: 1px solid #000;
+        }
+
+        .box {
+            opacity: 0;
+            transition: all 1s 0.3s;
+
+            &::before {
+                transition: all 1s 0.3s;
+            }
+        }
+
+        .box-top {
+            @include box();
+            background: rgba(0, 0, 0, 0.5);
+
+            transform: rotateX(90deg) translateZ($z);
+        }
+        .box-bottom {
+            @include box();
+            background: rgba(0, 0, 0, 0.5);
+
+            transform: rotateX(90deg) translateZ(-#{$z});
+        }
+        .box-front {
+            @include box();
+            background: rgba(255, 255, 255, 0.5);
+
+            transform: rotateY(90deg) translateZ(-#{$z});
+        }
+        .box-back {
+            @include box();
+            background: rgba(255, 255, 255, 0.5);
+
+            transform: rotateY(90deg) translateZ($z);
+        }
+        .box-left {
+            @include box();
+            background: rgba(125, 125, 125, 0.5);
+
+            transform: rotateY(180deg) translateZ($z);
+        }
+        .box-right {
+            cursor: pointer;
+            @include box();
+            background: rgba(125, 125, 125, 0.5);
+
+            transform: rotateY(180deg) translateZ(-#{$z});
+            @include utils.addText('PDCA', #ffffff, 200%);
+
+            &::before {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+
+                transform: translate(-80%, -10%) rotateY(180deg);
+            }
+        }
+    }
+
+    &:has(.box-right > input[type='checkbox']:checked) {
+        > .box-main {
+            $z: 17.5vw;
+            transition: all 0.5s;
+
+            rotate: z 310deg;
+            // rotate: y 360deg;
+            // rotate: x 360deg;
+            scale: 0.6;
+
+            .box {
+                transition: all 0.3s;
+                &::before {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    // rotate: y 180deg;
+
+                    transform: translate(-83%, -10%) rotateY(180deg);
+                }
+            }
+
+            .box-top {
+                background-color: #000;
+                transition: all 0.3s 0.8s !important;
+                transform: rotateX(0deg) translateZ($z) translateY(-100%);
+                @include utils.addText('ACTION', #ffffff, 250%);
+                &::before {
+                    transform: translate(-33%, -10%) rotateY(0deg);
+                }
+            }
+            .box-bottom {
+                background-color: #000;
+                transition: all 0.3s 0.6s;
+                transform: rotateX(180deg) translateZ(-#{$z}) translateY(-100%);
+                @include utils.addText('DO', #ffffff, 250%);
+                &::before {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transition: all 0.3s;
+                    // rotate: y 180deg;
+
+                    transform: translate(-83%, -10%) rotateY(180deg);
+                }
+            }
+            .box-front {
+                background-color: #000;
+                transition: all 0.3s 0.7s;
+                transform: rotateY(180deg) translateZ(-#{$z}) translateX(100%);
+                @include utils.addText('CHECK', #ffffff, 250%);
+                &::before {
+                    // rotate: y 180deg;
+
+                    transform: translate(-15%, -65%) rotateZ(-90deg);
+                }
+            }
+            .box-back {
+                background-color: #000;
+                transition: all 0.3s 0.5s;
+                transform: rotateY(0deg) translateZ($z) translateX(100%);
+                @include utils.addText('PLAN', #ffffff, 250%);
+                &::before {
+                    transform: translate(-90%, -25%) rotateY(0deg) rotateZ(90deg);
+                }
+            }
+            .box-left {
+                opacity: 0;
+                transform: rotateY(180deg) translateZ($z);
+                scale: 0.6;
+            }
+            .box-right {
+                transform: rotateY(180deg) translateZ(-#{$z});
+                scale: 0.6;
+
+                &::before {
+                    transform: translate(-80%, -10%) rotateY(180deg);
+                }
+            }
+        }
+    }
+}

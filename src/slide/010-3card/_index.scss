@@ -1,0 +1,158 @@
+@use '../utils' as utils;
+/* project://index.html */
+
+.slide-3card {
+    input[type='checkbox'] {
+        display: none;
+    }
+    perspective: 100%;
+    transform-style: preserve-3d;
+    > .title {
+        z-index: 1;
+        cursor: pointer;
+        transition: all 0.5s;
+        @include utils.slideTitle1-in('フリップカード', #000000);
+    }
+
+    > .title:has(input[type='checkbox']:checked) {
+        @include utils.slideTitle1('フリップカード', #000000);
+    }
+
+    $slide-3items-containerWidth: 25%;
+    $slide-3items-containerHeight: 60%;
+    $slide-3items-containerColor: rgb(97, 97, 97);
+
+    @mixin slide-3card-animation-in($delay: 0s) {
+        animation: slide-3items-container-in 0.3s $delay both;
+    }
+
+    > .card {
+        width: $slide-3items-containerWidth;
+        height: $slide-3items-containerHeight;
+        cursor: pointer;
+        transition: all 0.5s;
+
+        // background-color: $slide-3items-containerColor;
+
+        transform-origin: center center;
+        rotate: z 100deg;
+        translate: 0 100%;
+        perspective: 600px;
+        transform-style: preserve-3d;
+
+        &:has(input[type='checkbox']:checked) > .front {
+            rotate: y 180deg;
+        }
+
+        &:has(input[type='checkbox']:checked) > .back {
+            rotate: y 360deg;
+        }
+
+        > .front {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #8a8a8a;
+            border-radius: 4%;
+            transition: all 0.5s;
+            rotate: y 0deg;
+            backface-visibility: hidden;
+        }
+
+        > .back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #ffffff;
+            border-radius: 4%;
+            transition: all 0.5s;
+            rotate: y 180deg;
+
+            backface-visibility: hidden;
+        }
+    }
+
+    > .card-container1 {
+        position: absolute;
+        top: 20%;
+        left: 5%;
+        opacity: 0;
+
+        > .back {
+            background: url('src/slide/010-3card/hourensou1_houkoku.png') no-repeat center center /
+                70%;
+            background-color: #ffffff;
+        }
+
+        > .front {
+            @include utils.addText('ほう', #ffffff, 300%);
+            &::before {
+                position: absolute;
+                top: 40%;
+                left: 26%;
+            }
+        }
+    }
+
+    > .card-container2 {
+        position: absolute;
+        top: 20%;
+        left: 37.5%;
+        opacity: 0;
+        > .back {
+            background: url('src/slide/010-3card/hourensou2_renraku.png') no-repeat center center /
+                70%;
+            background-color: #ffffff;
+        }
+        > .front {
+            @include utils.addText('れん', #ffffff, 300%);
+            &::before {
+                position: absolute;
+                top: 40%;
+                left: 26%;
+            }
+        }
+    }
+
+    > .card-container3 {
+        position: absolute;
+        top: 20%;
+        right: 5%;
+        opacity: 0;
+
+        > .back {
+            background: url('src/slide/010-3card/hourensou3_soudan.png') no-repeat center center /
+                contain;
+            background-color: #ffffff;
+        }
+        > .front {
+            @include utils.addText('そう', #ffffff, 300%);
+            &::before {
+                position: absolute;
+                top: 40%;
+                left: 26%;
+            }
+        }
+    }
+
+    &:has(.title > input[type='checkbox']:checked) > .card-container1 {
+        opacity: 1;
+        transition-delay: 0.3s;
+        rotate: z 0deg;
+        translate: 0 0%;
+    }
+
+    &:has(.title > input[type='checkbox']:checked) > .card-container2 {
+        opacity: 1;
+        transition-delay: 0.5s;
+        rotate: z 0deg;
+        translate: 0 0%;
+    }
+
+    &:has(.title > input[type='checkbox']:checked) > .card-container3 {
+        opacity: 1;
+        transition-delay: 0.7s;
+        rotate: z 0deg;
+        translate: 0 0%;
+    }
+}

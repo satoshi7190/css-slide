@@ -1,0 +1,113 @@
+@use '../utils' as utils;
+/* project://index.html */
+
+.slide-flow {
+    input[type='checkbox'] {
+        display: none;
+    }
+
+    > .title {
+        z-index: 1;
+        cursor: pointer;
+        transition: all 0.5s;
+        @include utils.slideTitle1-in('フローチャート', #000000);
+    }
+
+    > .title:has(input[type='checkbox']:checked) {
+        @include utils.slideTitle1('フローチャート', #000000);
+    }
+
+    > .container {
+        position: absolute;
+        top: 40%;
+        width: 28%;
+        height: 27%;
+        clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%);
+        pointer-events: none;
+        cursor: pointer;
+        background-color: #626262;
+        opacity: 0;
+        transition: all 0.3s;
+        translate: -100% 0%;
+
+        @include utils.addText('フローチャート', #fff, 120%);
+        &::before {
+            position: absolute;
+            top: 40%;
+            left: 36%;
+        }
+    }
+
+    > .container1 {
+        left: 2%;
+        transition-delay: 0.3s;
+        &::before {
+            content: 'ステップ1';
+        }
+    }
+
+    > .container2 {
+        left: 25%;
+        &::before {
+            content: 'ステップ2';
+        }
+    }
+
+    > .container3 {
+        left: 48%;
+        &::before {
+            content: 'ステップ3';
+        }
+    }
+
+    > .container4 {
+        left: 71%;
+        background-color: #ae246b;
+        &::before {
+            content: '完了';
+        }
+    }
+
+    @mixin slide-doc-animation-in($delay: 0s) {
+        animation: slide-doc-animation-in 0.3s $delay both;
+    }
+
+    &:has(.title > input[type='checkbox']:checked) > .container1 {
+        pointer-events: auto;
+        opacity: 1;
+
+        translate: 0 0%;
+    }
+
+    &:has(.container1 > input[type='checkbox']:checked) > .container2 {
+        pointer-events: auto;
+        opacity: 1;
+
+        translate: 0 0%;
+    }
+
+    &:has(.container2 > input[type='checkbox']:checked) > .container3 {
+        pointer-events: auto;
+        opacity: 1;
+
+        translate: 0 0%;
+    }
+
+    &:has(.container3 > input[type='checkbox']:checked) > .container4 {
+        pointer-events: auto;
+        opacity: 1;
+
+        translate: 0 0%;
+    }
+
+    @keyframes slide-doc-animation-in {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+
+            translate: 0 0%;
+        }
+    }
+}

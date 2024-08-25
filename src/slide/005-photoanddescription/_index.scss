@@ -1,0 +1,81 @@
+@use '../utils' as utils;
+/* project://index.html */
+
+// NOTE: このファイルはスライドのテンプレートです。
+.slide-photoanddescription {
+    input[type='checkbox'] {
+        display: none;
+    }
+
+    > .title {
+        z-index: 1;
+        cursor: pointer;
+        transition: all 0.5s;
+        @include utils.slideTitle1-in('フォトレビュー', #000000);
+    }
+
+    > .title:has(input[type='checkbox']:checked) {
+        @include utils.slideTitle1('フォトレビュー', #000000);
+    }
+
+    &:has(.title > input[type='checkbox']:checked) {
+        > .circle-chart {
+            opacity: 1;
+        }
+
+        > .description {
+            opacity: 1;
+
+            > p {
+                opacity: 1;
+            }
+        }
+
+        > .photo {
+            clip-path: polygon(25% 0%, 100% 0, 100% 100%, 0% 100%);
+            background: url('src/slide/005-photoanddescription/cat.jpg') no-repeat center center /
+                100%;
+            opacity: 1;
+        }
+    }
+
+    > .description {
+        position: absolute;
+        top: 50%;
+        left: 45%;
+        width: 80%;
+        font-size: 150%;
+        opacity: 1;
+        transition: all 0.5s;
+        transform: translateY(-50%) translateX(-50%);
+        > p {
+            opacity: 0;
+            transition: all 0.5s;
+            &:nth-child(1) {
+                @include utils.addText('・これは猫', #000000, 150%);
+                animation-delay: 0.3s;
+            }
+            &:nth-child(2) {
+                @include utils.addText('・猫はすばらしい', #000000, 150%);
+                animation-delay: 0.6s;
+            }
+            &:nth-child(3) {
+                @include utils.addText('・猫は癒し', #000000, 150%);
+                animation-delay: 0.9s;
+            }
+        }
+    }
+
+    > .photo {
+        position: absolute;
+        top: 0%;
+        right: -0%;
+        width: 60%;
+        height: 100%;
+
+        clip-path: polygon(25% 0%, 100% 0, 100% 0, 26% 0);
+        background: url('src/slide/005-photoanddescription/cat.jpg') no-repeat center center / 130%;
+        opacity: 0;
+        transition: all 0.5s 0.3s;
+    }
+}

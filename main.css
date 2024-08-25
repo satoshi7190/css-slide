@@ -1,0 +1,3706 @@
+@charset "UTF-8";
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+ul[role=list],
+ol[role=list] {
+  list-style: none;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+  line-height: 1.1;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+img,
+picture {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+:target {
+  scroll-margin-block: 5ex;
+}
+
+/* project://index.html */
+.slide-cover > .slide-overlay {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(45deg, #005a87, #923eb9, #009362);
+  background-size: 200% 200%;
+  animation: moveBackground 5s infinite ease;
+}
+@keyframes moveBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.slide-cover > .ripple {
+  top: 50%;
+  left: 50%;
+  width: 10%;
+  aspect-ratio: 1/1;
+  border: 2px solid #000000;
+  border-radius: 50%;
+  opacity: 0;
+  transform: translateY(-50%) translateX(-50%);
+  animation: sectionTitle-ling 3s 0.8s ease-out infinite;
+}
+@keyframes sectionTitle-ling {
+  0% {
+    width: 0;
+    opacity: 1;
+  }
+  100% {
+    width: 150%;
+    opacity: 0;
+  }
+}
+.slide-cover > .title1 {
+  top: 30%;
+  width: 100%;
+  font-size: 200%;
+  color: #fff;
+  text-align: center;
+  rotate: z 8deg;
+  animation: cover-title-scale 3.5s ease infinite;
+}
+.slide-cover > .title1 span {
+  margin: 0 0.3%;
+  font-size: 140%;
+}
+@keyframes test {
+  0% {
+    letter-spacing: 1vw;
+    opacity: 0;
+    scale: 10;
+  }
+  100% {
+    letter-spacing: 0;
+    opacity: 1;
+    scale: 1;
+  }
+}
+@keyframes cover-title-scale {
+  0% {
+    scale: 1;
+  }
+  50% {
+    scale: 1.05;
+  }
+  100% {
+    scale: 1;
+  }
+}
+@keyframes blur {
+  0% {
+    filter: blur(5px);
+  }
+  100% {
+    filter: blur(0px);
+  }
+}
+.slide-cover > .name {
+  top: 80%;
+  left: 6%;
+  text-align: center;
+}
+.slide-cover > .name::before {
+  width: 100%;
+  height: 100%;
+  font-size: 150%;
+  color: #fff;
+  content: "Satoshi Komatsu";
+}
+
+/* project://index.html */
+.slide-whatisthis input[type=checkbox] {
+  display: none;
+}
+.slide-whatisthis > .text1 {
+  top: 40%;
+  left: 9%;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.slide-whatisthis > .text1::before {
+  width: 100%;
+  height: 100%;
+  font-size: 250%;
+  color: #000000;
+  content: "このスライドはCSSだけで作りました";
+}
+.slide-whatisthis > .text1:has(input:checked) {
+  top: 20%;
+  left: 9%;
+}
+.slide-whatisthis > .text2 {
+  top: 50%;
+  left: 10%;
+  transition: all 0.5s 0.3s;
+  transform: translateY(200%);
+}
+.slide-whatisthis > .text2 > p {
+  margin: 3% 0;
+}
+.slide-whatisthis > .text2 > p:nth-child(1)::before {
+  width: 100%;
+  height: 100%;
+  font-size: 170%;
+  color: #000000;
+  content: "※スライドテンプレートDEMOをひたすら流すだけです";
+}
+.slide-whatisthis > .text2 > p:nth-child(2)::before {
+  width: 100%;
+  height: 100%;
+  font-size: 170%;
+  color: #000000;
+  content: "※Scssで書きました";
+}
+.slide-whatisthis > .text2 > p:nth-child(3)::before {
+  width: 100%;
+  height: 100%;
+  font-size: 170%;
+  color: #000000;
+  content: "※画像の使用はアリというルールです";
+}
+.slide-whatisthis:has(.text1 > input:checked) .text2 {
+  transform: translateY(0%);
+}
+
+/* project://index.html */
+.slide-selfIntroduction input[type=checkbox] {
+  display: none;
+}
+.slide-selfIntroduction > .title {
+  z-index: 1;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.slide-selfIntroduction > .title::before {
+  font-size: 200%;
+  color: #000000;
+  content: "自己紹介";
+}
+.slide-selfIntroduction > .title {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  width: 100%;
+  scale: 1.5;
+}
+.slide-selfIntroduction > .title:has(input[type=checkbox]:checked)::before {
+  font-size: 200%;
+  color: #000000;
+  content: "自己紹介";
+}
+.slide-selfIntroduction > .title:has(input[type=checkbox]:checked) {
+  position: absolute;
+  top: 1%;
+  left: 1%;
+  width: 100%;
+  scale: 1;
+}
+.slide-selfIntroduction:has(.title > input[type=checkbox]:checked) > .icon {
+  opacity: 1;
+  animation: icon 0.5s 0.5s both;
+}
+@keyframes icon {
+  0% {
+    filter: blur(10px);
+    opacity: 0;
+    scale: 1.2;
+  }
+  80% {
+    opacity: 1;
+  }
+}
+.slide-selfIntroduction:has(.title > input[type=checkbox]:checked) > .description > p {
+  margin-bottom: 5%;
+}
+.slide-selfIntroduction:has(.title > input[type=checkbox]:checked) > .description > p:nth-child(1)::before {
+  width: 100%;
+  height: 100%;
+  font-size: 150%;
+  color: #000000;
+  content: "株式会社MIERUNE";
+}
+.slide-selfIntroduction:has(.title > input[type=checkbox]:checked) > .description > p:nth-child(1)::before {
+  animation: slide-selfIntroduction-in 0.5s 1.2s both;
+}
+.slide-selfIntroduction:has(.title > input[type=checkbox]:checked) > .description > p:nth-child(1)::after {
+  animation: text 0.5s 1.2s both;
+}
+.slide-selfIntroduction:has(.title > input[type=checkbox]:checked) > .description > p:nth-child(2)::before {
+  width: 100%;
+  height: 100%;
+  font-size: 150%;
+  color: #000000;
+  content: "フロントエンドエンジニア";
+}
+.slide-selfIntroduction:has(.title > input[type=checkbox]:checked) > .description > p:nth-child(2)::before {
+  animation: slide-selfIntroduction-in 0.5s 1.4s both;
+}
+.slide-selfIntroduction:has(.title > input[type=checkbox]:checked) > .description > p:nth-child(2)::after {
+  animation: text 0.5s 1.4s both;
+}
+.slide-selfIntroduction:has(.title > input[type=checkbox]:checked) > .description > p:nth-child(3)::before {
+  width: 100%;
+  height: 100%;
+  font-size: 150%;
+  color: #000000;
+  content: "岐阜県岐阜市出身";
+}
+.slide-selfIntroduction:has(.title > input[type=checkbox]:checked) > .description > p:nth-child(3)::before {
+  animation: slide-selfIntroduction-in 0.5s 1.6s both;
+}
+.slide-selfIntroduction:has(.title > input[type=checkbox]:checked) > .description > p:nth-child(3)::after {
+  animation: text 0.5s 1.6s both;
+}
+.slide-selfIntroduction:has(.title > input[type=checkbox]:checked) > .description > p:nth-child(4)::before {
+  width: 100%;
+  height: 100%;
+  font-size: 150%;
+  color: #000000;
+  content: "CSSが好き";
+}
+.slide-selfIntroduction:has(.title > input[type=checkbox]:checked) > .description > p:nth-child(4)::before {
+  animation: slide-selfIntroduction-in 0.5s 1.8s both;
+}
+.slide-selfIntroduction:has(.title > input[type=checkbox]:checked) > .description > p:nth-child(4)::after {
+  animation: text 0.5s 1.8s both;
+}
+@keyframes slide-selfIntroduction-in {
+  0% {
+    opacity: 0;
+  }
+}
+.slide-selfIntroduction:has(.title > input[type=checkbox]:checked) > .description > p:after {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 20%;
+  content: "";
+  background-color: rgba(0, 0, 0, 0.3529411765);
+  translate: 0 -1%;
+}
+@keyframes text {
+  0% {
+    left: 0;
+    width: 0%;
+  }
+  50% {
+    left: 0;
+    width: 100%;
+  }
+  100% {
+    left: 100%;
+    width: 0%;
+  }
+}
+.slide-selfIntroduction > .icon {
+  top: 27%;
+  left: 10%;
+  width: 30%;
+  aspect-ratio: 1/1;
+  background: url("src/slide/003-selfIntroduction/icon.png") no-repeat center center/cover;
+  border-radius: 50%;
+  opacity: 0;
+}
+.slide-selfIntroduction .description {
+  top: 28%;
+  right: 2%;
+  width: 50%;
+  height: auto;
+}
+
+/* project://index.html */
+.slide-doc input[type=checkbox] {
+  display: none;
+}
+.slide-doc > .title {
+  z-index: 1;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.slide-doc > .title::before {
+  font-size: 200%;
+  color: #000000;
+  content: "アジェンダ";
+}
+.slide-doc > .title {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  width: 100%;
+  scale: 1.5;
+}
+.slide-doc > .title:has(input[type=checkbox]:checked)::before {
+  font-size: 200%;
+  color: #000000;
+  content: "アジェンダ";
+}
+.slide-doc > .title:has(input[type=checkbox]:checked) {
+  position: absolute;
+  top: 1%;
+  left: 1%;
+  width: 100%;
+  scale: 1;
+}
+.slide-doc > .container {
+  position: absolute;
+  left: 4%;
+  width: 90%;
+  height: 17%;
+  cursor: pointer;
+  background-color: #8a8a8a;
+  opacity: 0;
+  transition: all 0.5s;
+  translate: 0 100%;
+}
+.slide-doc > .container:has(input[type=checkbox]:checked) {
+  position: absolute;
+  top: 15%;
+  z-index: 10;
+  width: 90%;
+  height: 77%;
+  background-color: #ffffff;
+}
+.slide-doc > .container:has(input[type=checkbox]:checked)::before {
+  top: 10%;
+  color: #000000;
+}
+.slide-doc > .container:has(input[type=checkbox]:checked) > p {
+  opacity: 1;
+}
+.slide-doc > .container > p {
+  opacity: 0;
+  transition: all 0.5s;
+}
+.slide-doc > .container1 {
+  top: 15%;
+}
+.slide-doc > .container1::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  font-size: 150%;
+  color: #fff;
+  text-overflow: ellipsis;
+  content: "　CSSは動的なインタラクションが実装できる";
+  transition: all 0.5s;
+  transform: translate(-50%, -50%);
+}
+.slide-doc > .container1:has(input[type=checkbox]:checked) > p:nth-child(1) {
+  position: absolute;
+  top: 50%;
+  left: 4%;
+}
+.slide-doc > .container1:has(input[type=checkbox]:checked) > p:nth-child(1)::before {
+  width: 100%;
+  height: 100%;
+  font-size: 180%;
+  color: #aa0088;
+  content: "「hover」や「active」「target」などの擬似クラスで可能";
+}
+.slide-doc > .container2 {
+  top: 35%;
+}
+.slide-doc > .container2::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  font-size: 150%;
+  color: #fff;
+  text-overflow: ellipsis;
+  content: "　CSSは独自のアニメーションを作れる";
+  transition: all 0.5s;
+  transform: translate(-50%, -50%);
+}
+.slide-doc > .container2:has(input[type=checkbox]:checked) > p:nth-child(1) {
+  position: absolute;
+  top: 50%;
+  left: 4%;
+}
+.slide-doc > .container2:has(input[type=checkbox]:checked) > p:nth-child(1)::before {
+  width: 100%;
+  height: 100%;
+  font-size: 180%;
+  color: #aa0088;
+  content: "「@keyframes」や「transition」で動きを見せれる。";
+}
+.slide-doc > .container3 {
+  top: 55%;
+}
+.slide-doc > .container3::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  font-size: 150%;
+  color: #fff;
+  text-overflow: ellipsis;
+  content: "　CSSはエフェクト機能がたくさんある";
+  transition: all 0.5s;
+  transform: translate(-50%, -50%);
+}
+.slide-doc > .container3:has(input[type=checkbox]:checked) > p:nth-child(1) {
+  position: absolute;
+  top: 50%;
+  left: 4%;
+}
+.slide-doc > .container3:has(input[type=checkbox]:checked) > p:nth-child(1)::before {
+  width: 100%;
+  height: 100%;
+  font-size: 180%;
+  color: #aa0088;
+  content: "「filter」や「clip-path」など、ぼかしやグレースケール、要素の形状の変更などの視覚的な効果。";
+}
+.slide-doc > .container4 {
+  top: 75%;
+}
+.slide-doc > .container4::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  font-size: 150%;
+  color: #fff;
+  text-overflow: ellipsis;
+  content: "　CSSはプログラミング的な特性がある";
+  transition: all 0.5s;
+  transform: translate(-50%, -50%);
+}
+.slide-doc > .container4:has(input[type=checkbox]:checked) {
+  background-color: #ffffff;
+}
+.slide-doc > .container4:has(input[type=checkbox]:checked) > p:nth-child(1) {
+  position: absolute;
+  top: 50%;
+  left: 4%;
+}
+.slide-doc > .container4:has(input[type=checkbox]:checked) > p:nth-child(1)::before {
+  width: 100%;
+  height: 100%;
+  font-size: 180%;
+  color: #aa0088;
+  content: "CSS変数（カスタムプロパティ）に加え「calc()」や「clamp()」などの関数で、値を動的に計算できる。";
+}
+.slide-doc:has(.container1 > input[type=checkbox]:checked) > .container2,
+.slide-doc:has(.container1 > input[type=checkbox]:checked) .container3,
+.slide-doc:has(.container1 > input[type=checkbox]:checked) .container4 {
+  left: -100%;
+  opacity: 0;
+}
+.slide-doc:has(.container2 > input[type=checkbox]:checked) > .container1,
+.slide-doc:has(.container2 > input[type=checkbox]:checked) .container3,
+.slide-doc:has(.container2 > input[type=checkbox]:checked) .container4 {
+  left: -100%;
+  opacity: 0;
+}
+.slide-doc:has(.container3 > input[type=checkbox]:checked) > .container1,
+.slide-doc:has(.container3 > input[type=checkbox]:checked) .container2,
+.slide-doc:has(.container3 > input[type=checkbox]:checked) .container4 {
+  left: -100%;
+  opacity: 0;
+}
+.slide-doc:has(.container4 > input[type=checkbox]:checked) > .container1,
+.slide-doc:has(.container4 > input[type=checkbox]:checked) .container2,
+.slide-doc:has(.container4 > input[type=checkbox]:checked) .container3 {
+  left: -100%;
+  opacity: 0;
+}
+.slide-doc:has(.title > input[type=checkbox]:checked) > .container1 {
+  animation: slide-doc-animation-in 0.3s 0.3s both;
+}
+.slide-doc:has(.title > input[type=checkbox]:checked) > .container2 {
+  animation: slide-doc-animation-in 0.3s 0.5s both;
+}
+.slide-doc:has(.title > input[type=checkbox]:checked) > .container3 {
+  animation: slide-doc-animation-in 0.3s 0.7s both;
+}
+.slide-doc:has(.title > input[type=checkbox]:checked) > .container4 {
+  animation: slide-doc-animation-in 0.3s 0.9s both;
+}
+@keyframes slide-doc-animation-in {
+  0% {
+    opacity: 0;
+    translate: 0 100%;
+  }
+  100% {
+    opacity: 1;
+    translate: 0 0%;
+  }
+}
+
+/* project://index.html */
+.slide-photoanddescription input[type=checkbox] {
+  display: none;
+}
+.slide-photoanddescription > .title {
+  z-index: 1;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.slide-photoanddescription > .title::before {
+  font-size: 200%;
+  color: #000000;
+  content: "フォトレビュー";
+}
+.slide-photoanddescription > .title {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  width: 100%;
+  scale: 1.5;
+}
+.slide-photoanddescription > .title:has(input[type=checkbox]:checked)::before {
+  font-size: 200%;
+  color: #000000;
+  content: "フォトレビュー";
+}
+.slide-photoanddescription > .title:has(input[type=checkbox]:checked) {
+  position: absolute;
+  top: 1%;
+  left: 1%;
+  width: 100%;
+  scale: 1;
+}
+.slide-photoanddescription:has(.title > input[type=checkbox]:checked) > .circle-chart {
+  opacity: 1;
+}
+.slide-photoanddescription:has(.title > input[type=checkbox]:checked) > .description {
+  opacity: 1;
+}
+.slide-photoanddescription:has(.title > input[type=checkbox]:checked) > .description > p {
+  opacity: 1;
+}
+.slide-photoanddescription:has(.title > input[type=checkbox]:checked) > .photo {
+  clip-path: polygon(25% 0%, 100% 0, 100% 100%, 0% 100%);
+  background: url("src/slide/005-photoanddescription/cat.jpg") no-repeat center center/100%;
+  opacity: 1;
+}
+.slide-photoanddescription > .description {
+  position: absolute;
+  top: 50%;
+  left: 45%;
+  width: 80%;
+  font-size: 150%;
+  opacity: 1;
+  transition: all 0.5s;
+  transform: translateY(-50%) translateX(-50%);
+}
+.slide-photoanddescription > .description > p {
+  opacity: 0;
+  transition: all 0.5s;
+}
+.slide-photoanddescription > .description > p:nth-child(1) {
+  animation-delay: 0.3s;
+}
+.slide-photoanddescription > .description > p:nth-child(1)::before {
+  width: 100%;
+  height: 100%;
+  font-size: 150%;
+  color: #000000;
+  content: "・これは猫";
+}
+.slide-photoanddescription > .description > p:nth-child(2) {
+  animation-delay: 0.6s;
+}
+.slide-photoanddescription > .description > p:nth-child(2)::before {
+  width: 100%;
+  height: 100%;
+  font-size: 150%;
+  color: #000000;
+  content: "・猫はすばらしい";
+}
+.slide-photoanddescription > .description > p:nth-child(3) {
+  animation-delay: 0.9s;
+}
+.slide-photoanddescription > .description > p:nth-child(3)::before {
+  width: 100%;
+  height: 100%;
+  font-size: 150%;
+  color: #000000;
+  content: "・猫は癒し";
+}
+.slide-photoanddescription > .photo {
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  width: 60%;
+  height: 100%;
+  clip-path: polygon(25% 0%, 100% 0, 100% 0, 26% 0);
+  background: url("src/slide/005-photoanddescription/cat.jpg") no-repeat center center/130%;
+  opacity: 0;
+  transition: all 0.5s 0.3s;
+}
+
+/* project://index.html */
+.slide-flow input[type=checkbox] {
+  display: none;
+}
+.slide-flow > .title {
+  z-index: 1;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.slide-flow > .title::before {
+  font-size: 200%;
+  color: #000000;
+  content: "フローチャート";
+}
+.slide-flow > .title {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  width: 100%;
+  scale: 1.5;
+}
+.slide-flow > .title:has(input[type=checkbox]:checked)::before {
+  font-size: 200%;
+  color: #000000;
+  content: "フローチャート";
+}
+.slide-flow > .title:has(input[type=checkbox]:checked) {
+  position: absolute;
+  top: 1%;
+  left: 1%;
+  width: 100%;
+  scale: 1;
+}
+.slide-flow > .container {
+  position: absolute;
+  top: 40%;
+  width: 28%;
+  height: 27%;
+  clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%);
+  pointer-events: none;
+  cursor: pointer;
+  background-color: #626262;
+  opacity: 0;
+  transition: all 0.3s;
+  translate: -100% 0%;
+}
+.slide-flow > .container::before {
+  width: 100%;
+  height: 100%;
+  font-size: 120%;
+  color: #fff;
+  content: "フローチャート";
+}
+.slide-flow > .container::before {
+  position: absolute;
+  top: 40%;
+  left: 36%;
+}
+.slide-flow > .container1 {
+  left: 2%;
+  transition-delay: 0.3s;
+}
+.slide-flow > .container1::before {
+  content: "ステップ1";
+}
+.slide-flow > .container2 {
+  left: 25%;
+}
+.slide-flow > .container2::before {
+  content: "ステップ2";
+}
+.slide-flow > .container3 {
+  left: 48%;
+}
+.slide-flow > .container3::before {
+  content: "ステップ3";
+}
+.slide-flow > .container4 {
+  left: 71%;
+  background-color: #ae246b;
+}
+.slide-flow > .container4::before {
+  content: "完了";
+}
+.slide-flow:has(.title > input[type=checkbox]:checked) > .container1 {
+  pointer-events: auto;
+  opacity: 1;
+  translate: 0 0%;
+}
+.slide-flow:has(.container1 > input[type=checkbox]:checked) > .container2 {
+  pointer-events: auto;
+  opacity: 1;
+  translate: 0 0%;
+}
+.slide-flow:has(.container2 > input[type=checkbox]:checked) > .container3 {
+  pointer-events: auto;
+  opacity: 1;
+  translate: 0 0%;
+}
+.slide-flow:has(.container3 > input[type=checkbox]:checked) > .container4 {
+  pointer-events: auto;
+  opacity: 1;
+  translate: 0 0%;
+}
+@keyframes slide-doc-animation-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    translate: 0 0%;
+  }
+}
+
+/* project://index.html */
+@property --count {
+  syntax: "<integer>";
+  inherits: false;
+  initial-value: 0;
+}
+.slide-chartBar input[type=checkbox] {
+  display: none;
+}
+.slide-chartBar > .title {
+  z-index: 1;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.slide-chartBar > .title::before {
+  font-size: 200%;
+  color: #000000;
+  content: "棒グラフ";
+}
+.slide-chartBar > .title {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  width: 100%;
+  scale: 1.5;
+}
+.slide-chartBar > .title:has(input[type=checkbox]:checked)::before {
+  font-size: 200%;
+  color: #000000;
+  content: "棒グラフ";
+}
+.slide-chartBar > .title:has(input[type=checkbox]:checked) {
+  position: absolute;
+  top: 1%;
+  left: 1%;
+  width: 100%;
+  scale: 1;
+}
+.slide-chartBar > .chart-bar {
+  position: absolute;
+  bottom: 15%;
+  left: 13%;
+  display: flex;
+  gap: 10%;
+  align-items: flex-end;
+  justify-content: center;
+  width: 8%;
+  height: 65%;
+  pointer-events: none;
+  pointer-events: auto;
+  opacity: 0;
+}
+.slide-chartBar > .chart-bar > .bar {
+  position: absolute;
+  width: 100%;
+  background-color: #585858;
+  transition: all 0.5s;
+}
+.slide-chartBar > .chart-bar > .year {
+  position: absolute;
+  top: 100%;
+  cursor: pointer;
+}
+.slide-chartBar > .chart-bar > .year::before {
+  width: 100%;
+  height: 100%;
+  font-size: 100%;
+  color: #000000;
+  content: "2021";
+}
+.slide-chartBar > .chart-bar > .counter {
+  position: absolute;
+  bottom: 0%;
+  font-size: 150%;
+  font-weight: bold;
+  font-variant-numeric: tabular-nums;
+  transition: all 0.5s;
+}
+.slide-chartBar .chart-bar1 {
+  left: 5%;
+}
+.slide-chartBar .chart-bar1 > .bar {
+  height: 0%;
+}
+.slide-chartBar .chart-bar1 > .year::before {
+  content: "2020";
+}
+.slide-chartBar .chart-bar1:has(.year > input[type=checkbox]:checked) > .bar {
+  height: 20%;
+}
+.slide-chartBar .chart-bar1:has(.year > input[type=checkbox]:checked) > .counter {
+  bottom: 20%;
+  --count: 20;
+  counter-reset: countup var(--count);
+  animation: chart-percentage-20 0.5s;
+}
+@keyframes chart-percentage-20 {
+  from {
+    --count: 0;
+  }
+  to {
+    --count: 20;
+  }
+}
+.slide-chartBar .chart-bar1:has(.year > input[type=checkbox]:checked) > .counter::after {
+  content: counter(countup) "%";
+}
+.slide-chartBar .chart-bar2 {
+  left: 17.5%;
+}
+.slide-chartBar .chart-bar2 > .bar {
+  height: 0;
+}
+.slide-chartBar .chart-bar2 > .year::before {
+  content: "2021";
+}
+.slide-chartBar .chart-bar2:has(.year > input[type=checkbox]:checked) > .bar {
+  height: 37%;
+}
+.slide-chartBar .chart-bar2:has(.year > input[type=checkbox]:checked) > .counter {
+  bottom: 37%;
+  --count: 37;
+  counter-reset: countup var(--count);
+  animation: chart-percentage-37 0.7s;
+}
+@keyframes chart-percentage-37 {
+  from {
+    --count: 0;
+  }
+  to {
+    --count: 37;
+  }
+}
+.slide-chartBar .chart-bar2:has(.year > input[type=checkbox]:checked) > .counter::after {
+  content: counter(countup) "%";
+}
+.slide-chartBar .chart-bar3 {
+  left: 30%;
+}
+.slide-chartBar .chart-bar3 > .bar {
+  height: 0%;
+}
+.slide-chartBar .chart-bar3 > .year::before {
+  content: "2022";
+}
+.slide-chartBar .chart-bar3:has(.year > input[type=checkbox]:checked) > .bar {
+  height: 54%;
+}
+.slide-chartBar .chart-bar3:has(.year > input[type=checkbox]:checked) > .counter {
+  bottom: 54%;
+  --count: 54;
+  counter-reset: countup var(--count);
+  animation: chart-percentage-54 0.7s;
+}
+@keyframes chart-percentage-54 {
+  from {
+    --count: 0;
+  }
+  to {
+    --count: 54;
+  }
+}
+.slide-chartBar .chart-bar3:has(.year > input[type=checkbox]:checked) > .counter::after {
+  content: counter(countup) "%";
+}
+.slide-chartBar .chart-bar4 {
+  left: 42.5%;
+}
+.slide-chartBar .chart-bar4 > .bar {
+  height: 0%;
+}
+.slide-chartBar .chart-bar4 > .year::before {
+  content: "2023";
+}
+.slide-chartBar .chart-bar4:has(.year > input[type=checkbox]:checked) > .bar {
+  height: 69%;
+}
+.slide-chartBar .chart-bar4:has(.year > input[type=checkbox]:checked) > .counter {
+  bottom: 69%;
+  --count: 69;
+  counter-reset: countup var(--count);
+  animation: chart-percentage-69 0.7s;
+}
+@keyframes chart-percentage-69 {
+  from {
+    --count: 0;
+  }
+  to {
+    --count: 69;
+  }
+}
+.slide-chartBar .chart-bar4:has(.year > input[type=checkbox]:checked) > .counter::after {
+  content: counter(countup) "%";
+}
+.slide-chartBar .chart-bar5 {
+  left: 55%;
+}
+.slide-chartBar .chart-bar5 > .bar {
+  height: 0%;
+}
+.slide-chartBar .chart-bar5 > .year::before {
+  content: "2024";
+}
+.slide-chartBar .chart-bar5:has(.year > input[type=checkbox]:checked) > .bar {
+  height: 94%;
+  background-color: rgb(209, 70, 0);
+}
+.slide-chartBar .chart-bar5:has(.year > input[type=checkbox]:checked) > .counter {
+  bottom: 94%;
+  font-size: 180%;
+  color: rgb(209, 70, 0);
+  counter-reset: countup var(--count);
+  animation: chart-percentage-94 0.7s;
+  --count: 94;
+}
+@keyframes chart-percentage-94 {
+  from {
+    --count: 0;
+  }
+  to {
+    --count: 94;
+  }
+}
+.slide-chartBar .chart-bar5:has(.year > input[type=checkbox]:checked) > .counter::after {
+  content: counter(countup) "%";
+}
+.slide-chartBar > .text {
+  position: absolute;
+  top: 60%;
+  right: -11%;
+  font-size: 150%;
+  font-weight: bold;
+  font-variant-numeric: tabular-nums;
+  opacity: 0;
+  transition: all 0.5s 0.3s;
+  transform: translate(-50%, -50%);
+  transform-origin: 0 0;
+  scale: 0.5;
+}
+.slide-chartBar > .text > p:nth-child(1)::before {
+  width: 100%;
+  height: 100%;
+  font-size: 100%;
+  color: #000000;
+  content: "2024年には";
+}
+.slide-chartBar > .text > p:nth-child(2)::before {
+  width: 100%;
+  height: 100%;
+  font-size: 130%;
+  color: rgb(209, 70, 0);
+  content: "94%シェア獲得!";
+}
+.slide-chartBar:has(.title > input[type=checkbox]:checked) > .chart-bar {
+  opacity: 1;
+  transition: all 0.5s;
+}
+.slide-chartBar:has(.chart-bar5 > .year > input[type=checkbox]:checked) > .text {
+  opacity: 1;
+  scale: 1;
+}
+
+/* project://index.html */
+@property --chart-percentage {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 0%;
+}
+.slide-chartCircle input[type=checkbox] {
+  display: none;
+}
+.slide-chartCircle > .title {
+  z-index: 1;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.slide-chartCircle > .title::before {
+  font-size: 200%;
+  color: #000000;
+  content: "円グラフ";
+}
+.slide-chartCircle > .title {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  width: 100%;
+  scale: 1.5;
+}
+.slide-chartCircle > .title:has(input[type=checkbox]:checked)::before {
+  font-size: 200%;
+  color: #000000;
+  content: "円グラフ";
+}
+.slide-chartCircle > .title:has(input[type=checkbox]:checked) {
+  position: absolute;
+  top: 1%;
+  left: 1%;
+  width: 100%;
+  scale: 1;
+}
+.slide-chartCircle:has(.title > input[type=checkbox]:checked) > .circle-chart {
+  opacity: 1;
+}
+.slide-chartCircle .circle-chart {
+  position: absolute;
+  bottom: 20%;
+  left: 35%;
+  display: grid;
+  place-items: center;
+  width: 25%;
+  aspect-ratio: 1/1;
+  opacity: 0;
+  transition: all 0.5s;
+}
+.slide-chartCircle .circle-chart .circle {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.slide-chartCircle .circle-chart .small {
+  width: 70%;
+  height: 70%;
+  cursor: pointer;
+  background: #8a8a8a;
+  transition: all 0.5s;
+}
+.slide-chartCircle .circle-chart .main {
+  pointer-events: none;
+  opacity: 0;
+}
+.slide-chartCircle .circle-chart .counter {
+  position: absolute;
+  font-size: 200%;
+  font-weight: bold;
+  font-variant-numeric: tabular-nums;
+  pointer-events: none;
+  opacity: 0;
+}
+.slide-chartCircle .circle-chart .counter::after {
+  content: counter(countup) "%";
+}
+.slide-chartCircle .circle-chart:has(.small > input[type=checkbox]:checked) .small {
+  background: rgb(221, 221, 221);
+}
+.slide-chartCircle .chart1 {
+  left: 3%;
+}
+.slide-chartCircle .chart1:has(.small > input[type=checkbox]:checked) .main {
+  background: conic-gradient(rgb(57, 113, 162) 0% var(--chart-percentage), rgb(221, 221, 221) var(--chart-percentage) 100%);
+  opacity: 1;
+  animation: chart-percentage1 1s both;
+  --chart-percentage: 46%;
+}
+@keyframes chart-percentage1 {
+  from {
+    --chart-percentage: 0%;
+  }
+  to {
+    --chart-percentage: 46%;
+  }
+}
+.slide-chartCircle .chart1:has(.small > input[type=checkbox]:checked) .counter {
+  counter-reset: countup var(--count);
+  opacity: 1;
+  animation: slide-chartCircle-count1 1s, chart-percentage-count-complete1 0.3s 1s both;
+  --count: 46;
+}
+@keyframes slide-chartCircle-count1 {
+  from {
+    --count: 0;
+  }
+  to {
+    --count: 46;
+  }
+}
+@keyframes chart-percentage-count-complete1 {
+  to {
+    color: rgb(57, 113, 162);
+    transform: scale(1.5);
+  }
+}
+.slide-chartCircle .chart2 {
+  left: 35%;
+}
+.slide-chartCircle .chart2:has(.small > input[type=checkbox]:checked) .main {
+  background: conic-gradient(rgb(73, 162, 57) 0% var(--chart-percentage), rgb(221, 221, 221) var(--chart-percentage) 100%);
+  opacity: 1;
+  animation: chart-percentage2 1s both;
+  --chart-percentage: 72%;
+}
+@keyframes chart-percentage2 {
+  from {
+    --chart-percentage: 0%;
+  }
+  to {
+    --chart-percentage: 72%;
+  }
+}
+.slide-chartCircle .chart2:has(.small > input[type=checkbox]:checked) .counter {
+  counter-reset: countup var(--count);
+  opacity: 1;
+  animation: slide-chartCircle-count2 1s, chart-percentage-count-complete2 0.3s 1s both;
+  --count: 72;
+}
+@keyframes slide-chartCircle-count2 {
+  from {
+    --count: 0;
+  }
+  to {
+    --count: 72;
+  }
+}
+@keyframes chart-percentage-count-complete2 {
+  to {
+    color: rgb(73, 162, 57);
+    transform: scale(1.5);
+  }
+}
+.slide-chartCircle .chart3 {
+  left: 67%;
+}
+.slide-chartCircle .chart3:has(.small > input[type=checkbox]:checked) .main {
+  background: conic-gradient(rgb(162, 73, 57) 0% var(--chart-percentage), rgb(221, 221, 221) var(--chart-percentage) 100%);
+  opacity: 1;
+  animation: chart-percentage3 1s both;
+  --chart-percentage: 90%;
+}
+@keyframes chart-percentage3 {
+  from {
+    --chart-percentage: 0%;
+  }
+  to {
+    --chart-percentage: 90%;
+  }
+}
+.slide-chartCircle .chart3:has(.small > input[type=checkbox]:checked) .counter {
+  counter-reset: countup var(--count);
+  opacity: 1;
+  animation: slide-chartCircle-count3 1s, chart-percentage-count-complete3 0.3s 1s both;
+  --count: 90;
+}
+@keyframes slide-chartCircle-count3 {
+  from {
+    --count: 0;
+  }
+  to {
+    --count: 90;
+  }
+}
+@keyframes chart-percentage-count-complete3 {
+  to {
+    color: rgb(162, 73, 57);
+    transform: scale(1.5);
+  }
+}
+
+/* project://index.html */
+@keyframes test1-slide-in {
+  0% {
+    rotate: z 0deg;
+  }
+  100% {
+    rotate: z 90deg;
+  }
+}
+.slide-sincos {
+  position: absolute;
+}
+.slide-sincos input[type=checkbox] {
+  display: none;
+}
+.slide-sincos > .title {
+  z-index: 1;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.slide-sincos > .title::before {
+  font-size: 200%;
+  color: #000000;
+  content: "サイクルチャート";
+}
+.slide-sincos > .title {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  width: 100%;
+  scale: 1.5;
+}
+.slide-sincos > .title:has(input[type=checkbox]:checked)::before {
+  font-size: 200%;
+  color: #000000;
+  content: "サイクルチャート";
+}
+.slide-sincos > .title:has(input[type=checkbox]:checked) {
+  position: absolute;
+  top: 1%;
+  left: 1%;
+  width: 100%;
+  scale: 1;
+}
+.slide-sincos:has(.title > input[type=checkbox]:checked) > .container {
+  pointer-events: auto;
+  opacity: 1;
+}
+.slide-sincos:has(.title > input[type=checkbox]:checked) > .container-text {
+  opacity: 1;
+}
+.slide-sincos:has(.title > input[type=checkbox]:checked) > .container-arrow {
+  pointer-events: none;
+  opacity: 1;
+}
+.slide-sincos > .container-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  pointer-events: none;
+  opacity: 0;
+  transition: all 0.5s;
+  translate: -50% -50%;
+}
+.slide-sincos > .container-text::before {
+  width: 100%;
+  height: 100%;
+  font-size: 100%;
+  color: #fff;
+  content: "一週間のサイクル";
+}
+.slide-sincos > .container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 19%;
+  aspect-ratio: 1/1;
+  pointer-events: none;
+  cursor: pointer;
+  background-color: #a4a4a4;
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.5s;
+  scale: 1.5;
+  translate: -50% -50%;
+}
+.slide-sincos > .container:has(input[type=checkbox]:checked) {
+  scale: 1;
+  animation: slide-sincos-rotate 15s infinite linear;
+}
+@keyframes slide-sincos-rotate {
+  0% {
+    rotate: z 0deg;
+  }
+  100% {
+    rotate: z 360deg;
+  }
+}
+@keyframes slide-sincos-rotate-2 {
+  0% {
+    rotate: z 0deg;
+  }
+  100% {
+    rotate: z -360deg;
+  }
+}
+@keyframes slide-sincos-rotate-3 {
+  0% {
+    rotate: z 25deg;
+  }
+  100% {
+    rotate: z 385deg;
+  }
+}
+@keyframes slide-sincos-rotate-4 {
+  0% {
+    rotate: z 0deg;
+  }
+  100% {
+    rotate: z -3960deg;
+  }
+}
+.slide-sincos > .container > .item {
+  position: absolute;
+  width: 50%;
+  aspect-ratio: 1/1;
+  pointer-events: none;
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.3s;
+}
+.slide-sincos > .container:has(input[type=checkbox]:checked) > .item {
+  opacity: 1;
+}
+.slide-sincos > .container:has(input[type=checkbox]:checked) > .item:nth-child(1) {
+  background-color: #861f1f;
+  translate: 230% 0%;
+}
+.slide-sincos > .container:has(input[type=checkbox]:checked) > .item:nth-child(1)::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 150%;
+  color: #ffffff;
+  content: "月";
+  transform: translate(-50%, -50%);
+  transform-origin: 0 0;
+  animation: slide-sincos-rotate-2 15s infinite linear;
+}
+.slide-sincos > .container:has(input[type=checkbox]:checked) > .item:nth-child(2) {
+  background-color: #1f8686;
+  translate: 143.4026544275% 179.8212409676%;
+}
+.slide-sincos > .container:has(input[type=checkbox]:checked) > .item:nth-child(2)::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 150%;
+  color: #ffffff;
+  content: "火";
+  transform: translate(-50%, -50%);
+  transform-origin: 0 0;
+  animation: slide-sincos-rotate-2 15s infinite linear;
+}
+.slide-sincos > .container:has(input[type=checkbox]:checked) > .item:nth-child(3) {
+  background-color: #1f1f86;
+  translate: -51.17981481% 224.2334198018%;
+}
+.slide-sincos > .container:has(input[type=checkbox]:checked) > .item:nth-child(3)::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 150%;
+  color: #ffffff;
+  content: "水";
+  transform: translate(-50%, -50%);
+  transform-origin: 0 0;
+  animation: slide-sincos-rotate-2 15s infinite linear;
+}
+.slide-sincos > .container:has(input[type=checkbox]:checked) > .item:nth-child(4) {
+  background-color: #861f86;
+  translate: -207.2228396176% 99.793259997%;
+}
+.slide-sincos > .container:has(input[type=checkbox]:checked) > .item:nth-child(4)::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 150%;
+  color: #ffffff;
+  content: "木";
+  transform: translate(-50%, -50%);
+  transform-origin: 0 0;
+  animation: slide-sincos-rotate-2 15s infinite linear;
+}
+.slide-sincos > .container:has(input[type=checkbox]:checked) > .item:nth-child(5) {
+  background-color: #86861f;
+  translate: -207.2228396176% -99.793259997%;
+}
+.slide-sincos > .container:has(input[type=checkbox]:checked) > .item:nth-child(5)::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 150%;
+  color: #ffffff;
+  content: "金";
+  transform: translate(-50%, -50%);
+  transform-origin: 0 0;
+  animation: slide-sincos-rotate-2 15s infinite linear;
+}
+.slide-sincos > .container:has(input[type=checkbox]:checked) > .item:nth-child(6) {
+  background-color: #ffa500;
+  translate: -51.17981481% -224.2334198018%;
+}
+.slide-sincos > .container:has(input[type=checkbox]:checked) > .item:nth-child(6)::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 150%;
+  color: #ffffff;
+  content: "土";
+  transform: translate(-50%, -50%);
+  transform-origin: 0 0;
+  animation: slide-sincos-rotate-2 15s infinite linear;
+}
+.slide-sincos > .container:has(input[type=checkbox]:checked) > .item:nth-child(7) {
+  background-color: #b61e00;
+  translate: 143.4026544275% -179.8212409676%;
+}
+.slide-sincos > .container:has(input[type=checkbox]:checked) > .item:nth-child(7)::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 150%;
+  color: #ffffff;
+  content: "日";
+  transform: translate(-50%, -50%);
+  transform-origin: 0 0;
+  animation: slide-sincos-rotate-2 15s infinite linear;
+}
+.slide-sincos > .container-arrow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 10%;
+  aspect-ratio: 1/1;
+  pointer-events: none;
+  cursor: pointer;
+  border-radius: 50%;
+  opacity: 0;
+  translate: -50% -50%;
+}
+.slide-sincos > .container-arrow > .item {
+  position: absolute;
+  width: 70%;
+  aspect-ratio: 1/1;
+  pointer-events: none;
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.3s;
+}
+.slide-sincos:has(.container > input[type=checkbox]:checked) > .container-arrow {
+  animation: slide-sincos-rotate-3 15s infinite linear;
+}
+.slide-sincos:has(.container > input[type=checkbox]:checked) > .container-arrow > .item {
+  opacity: 1;
+}
+.slide-sincos:has(.container > input[type=checkbox]:checked) > .container-arrow > .item:nth-child(1) {
+  translate: 330% 0%;
+}
+.slide-sincos:has(.container > input[type=checkbox]:checked) > .container-arrow > .item:nth-child(1)::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 150%;
+  color: #000000;
+  content: "→";
+  transform-origin: 0 0;
+  rotate: 90deg;
+}
+.slide-sincos:has(.container > input[type=checkbox]:checked) > .container-arrow > .item:nth-child(2) {
+  translate: 205.7516346134% 258.0043892144%;
+}
+.slide-sincos:has(.container > input[type=checkbox]:checked) > .container-arrow > .item:nth-child(2)::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 150%;
+  color: #000000;
+  content: "→";
+  transform-origin: 0 0;
+  rotate: 141.4285714286deg;
+}
+.slide-sincos:has(.container > input[type=checkbox]:checked) > .container-arrow > .item:nth-child(3) {
+  translate: -73.4319082056% 321.72621102%;
+}
+.slide-sincos:has(.container > input[type=checkbox]:checked) > .container-arrow > .item:nth-child(3)::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 150%;
+  color: #000000;
+  content: "→";
+  transform-origin: 0 0;
+  rotate: 192.8571428571deg;
+}
+.slide-sincos:has(.container > input[type=checkbox]:checked) > .container-arrow > .item:nth-child(4) {
+  translate: -297.3197264078% 143.1816339088%;
+}
+.slide-sincos:has(.container > input[type=checkbox]:checked) > .container-arrow > .item:nth-child(4)::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 150%;
+  color: #000000;
+  content: "→";
+  transform-origin: 0 0;
+  rotate: 244.2857142857deg;
+}
+.slide-sincos:has(.container > input[type=checkbox]:checked) > .container-arrow > .item:nth-child(5) {
+  translate: -297.3197264078% -143.1816339088%;
+}
+.slide-sincos:has(.container > input[type=checkbox]:checked) > .container-arrow > .item:nth-child(5)::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 150%;
+  color: #000000;
+  content: "→";
+  transform-origin: 0 0;
+  rotate: 295.7142857143deg;
+}
+.slide-sincos:has(.container > input[type=checkbox]:checked) > .container-arrow > .item:nth-child(6) {
+  translate: -73.4319082056% -321.72621102%;
+}
+.slide-sincos:has(.container > input[type=checkbox]:checked) > .container-arrow > .item:nth-child(6)::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 150%;
+  color: #000000;
+  content: "→";
+  transform-origin: 0 0;
+  rotate: 347.1428571429deg;
+}
+.slide-sincos:has(.container > input[type=checkbox]:checked) > .container-arrow > .item:nth-child(7) {
+  translate: 205.7516346134% -258.0043892144%;
+}
+.slide-sincos:has(.container > input[type=checkbox]:checked) > .container-arrow > .item:nth-child(7)::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 150%;
+  color: #000000;
+  content: "→";
+  transform-origin: 0 0;
+  rotate: 398.5714285714deg;
+}
+
+/* project://index.html */
+.slide-3card {
+  perspective: 100%;
+  transform-style: preserve-3d;
+}
+.slide-3card input[type=checkbox] {
+  display: none;
+}
+.slide-3card > .title {
+  z-index: 1;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.slide-3card > .title::before {
+  font-size: 200%;
+  color: #000000;
+  content: "フリップカード";
+}
+.slide-3card > .title {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  width: 100%;
+  scale: 1.5;
+}
+.slide-3card > .title:has(input[type=checkbox]:checked)::before {
+  font-size: 200%;
+  color: #000000;
+  content: "フリップカード";
+}
+.slide-3card > .title:has(input[type=checkbox]:checked) {
+  position: absolute;
+  top: 1%;
+  left: 1%;
+  width: 100%;
+  scale: 1;
+}
+.slide-3card > .card {
+  width: 25%;
+  height: 60%;
+  cursor: pointer;
+  transition: all 0.5s;
+  transform-origin: center center;
+  rotate: z 100deg;
+  translate: 0 100%;
+  perspective: 600px;
+  transform-style: preserve-3d;
+}
+.slide-3card > .card:has(input[type=checkbox]:checked) > .front {
+  rotate: y 180deg;
+}
+.slide-3card > .card:has(input[type=checkbox]:checked) > .back {
+  rotate: y 360deg;
+}
+.slide-3card > .card > .front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #8a8a8a;
+  border-radius: 4%;
+  transition: all 0.5s;
+  rotate: y 0deg;
+  backface-visibility: hidden;
+}
+.slide-3card > .card > .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  border-radius: 4%;
+  transition: all 0.5s;
+  rotate: y 180deg;
+  backface-visibility: hidden;
+}
+.slide-3card > .card-container1 {
+  position: absolute;
+  top: 20%;
+  left: 5%;
+  opacity: 0;
+}
+.slide-3card > .card-container1 > .back {
+  background: url("src/slide/010-3card/hourensou1_houkoku.png") no-repeat center center/70%;
+  background-color: #ffffff;
+}
+.slide-3card > .card-container1 > .front::before {
+  width: 100%;
+  height: 100%;
+  font-size: 300%;
+  color: #ffffff;
+  content: "ほう";
+}
+.slide-3card > .card-container1 > .front::before {
+  position: absolute;
+  top: 40%;
+  left: 26%;
+}
+.slide-3card > .card-container2 {
+  position: absolute;
+  top: 20%;
+  left: 37.5%;
+  opacity: 0;
+}
+.slide-3card > .card-container2 > .back {
+  background: url("src/slide/010-3card/hourensou2_renraku.png") no-repeat center center/70%;
+  background-color: #ffffff;
+}
+.slide-3card > .card-container2 > .front::before {
+  width: 100%;
+  height: 100%;
+  font-size: 300%;
+  color: #ffffff;
+  content: "れん";
+}
+.slide-3card > .card-container2 > .front::before {
+  position: absolute;
+  top: 40%;
+  left: 26%;
+}
+.slide-3card > .card-container3 {
+  position: absolute;
+  top: 20%;
+  right: 5%;
+  opacity: 0;
+}
+.slide-3card > .card-container3 > .back {
+  background: url("src/slide/010-3card/hourensou3_soudan.png") no-repeat center center/contain;
+  background-color: #ffffff;
+}
+.slide-3card > .card-container3 > .front::before {
+  width: 100%;
+  height: 100%;
+  font-size: 300%;
+  color: #ffffff;
+  content: "そう";
+}
+.slide-3card > .card-container3 > .front::before {
+  position: absolute;
+  top: 40%;
+  left: 26%;
+}
+.slide-3card:has(.title > input[type=checkbox]:checked) > .card-container1 {
+  opacity: 1;
+  transition-delay: 0.3s;
+  rotate: z 0deg;
+  translate: 0 0%;
+}
+.slide-3card:has(.title > input[type=checkbox]:checked) > .card-container2 {
+  opacity: 1;
+  transition-delay: 0.5s;
+  rotate: z 0deg;
+  translate: 0 0%;
+}
+.slide-3card:has(.title > input[type=checkbox]:checked) > .card-container3 {
+  opacity: 1;
+  transition-delay: 0.7s;
+  rotate: z 0deg;
+  translate: 0 0%;
+}
+
+.slide-3d {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+.slide-3d input[type=checkbox] {
+  display: none;
+}
+.slide-3d > .title {
+  z-index: 1;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.slide-3d > .title::before {
+  font-size: 200%;
+  color: #000000;
+  content: "3Dボックス";
+}
+.slide-3d > .title {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  width: 100%;
+  scale: 1.5;
+}
+.slide-3d > .title:has(input[type=checkbox]:checked)::before {
+  font-size: 200%;
+  color: #000000;
+  content: "3Dボックス";
+}
+.slide-3d > .title:has(input[type=checkbox]:checked) {
+  position: absolute;
+  top: 1%;
+  left: 1%;
+  width: 100%;
+  scale: 1;
+}
+.slide-3d:has(.title > input[type=checkbox]:checked) > .box-main {
+  opacity: 1;
+  transform: rotate3d(1, 1, 1, 1turn);
+  scale: 1;
+}
+.slide-3d:has(.title > input[type=checkbox]:checked) > .box-main .box {
+  opacity: 1;
+}
+.slide-3d > .box-main {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 25%;
+  aspect-ratio: 1/1;
+  opacity: 1;
+  transition: all 1s 0.3s;
+  transform-origin: center center;
+  scale: 0.3;
+  translate: -50% -50%;
+  transform-style: preserve-3d;
+}
+@keyframes slide-3d-rotate {
+  0% {
+    opacity: 0;
+    transform: rotate3d(1, 1, 1, 0turn);
+    scale: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: rotate3d(1, 1, 1, 2turn);
+    scale: 1;
+  }
+}
+.slide-3d > .box-main .box {
+  opacity: 0;
+  transition: all 1s 0.3s;
+}
+.slide-3d > .box-main .box::before {
+  transition: all 1s 0.3s;
+}
+.slide-3d > .box-main .box-top {
+  position: absolute;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #000;
+  background: rgba(0, 0, 0, 0.5);
+  transform: rotateX(90deg) translateZ(12.5vw);
+}
+.slide-3d > .box-main .box-bottom {
+  position: absolute;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #000;
+  background: rgba(0, 0, 0, 0.5);
+  transform: rotateX(90deg) translateZ(-12.5vw);
+}
+.slide-3d > .box-main .box-front {
+  position: absolute;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #000;
+  background: rgba(255, 255, 255, 0.5);
+  transform: rotateY(90deg) translateZ(-12.5vw);
+}
+.slide-3d > .box-main .box-back {
+  position: absolute;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #000;
+  background: rgba(255, 255, 255, 0.5);
+  transform: rotateY(90deg) translateZ(12.5vw);
+}
+.slide-3d > .box-main .box-left {
+  position: absolute;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #000;
+  background: rgba(125, 125, 125, 0.5);
+  transform: rotateY(180deg) translateZ(12.5vw);
+}
+.slide-3d > .box-main .box-right {
+  cursor: pointer;
+  position: absolute;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #000;
+  background: rgba(125, 125, 125, 0.5);
+  transform: rotateY(180deg) translateZ(-12.5vw);
+}
+.slide-3d > .box-main .box-right::before {
+  width: 100%;
+  height: 100%;
+  font-size: 200%;
+  color: #ffffff;
+  content: "PDCA";
+}
+.slide-3d > .box-main .box-right::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-80%, -10%) rotateY(180deg);
+}
+.slide-3d:has(.box-right > input[type=checkbox]:checked) > .box-main {
+  transition: all 0.5s;
+  rotate: z 310deg;
+  scale: 0.6;
+}
+.slide-3d:has(.box-right > input[type=checkbox]:checked) > .box-main .box {
+  transition: all 0.3s;
+}
+.slide-3d:has(.box-right > input[type=checkbox]:checked) > .box-main .box::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-83%, -10%) rotateY(180deg);
+}
+.slide-3d:has(.box-right > input[type=checkbox]:checked) > .box-main .box-top {
+  background-color: #000;
+  transition: all 0.3s 0.8s !important;
+  transform: rotateX(0deg) translateZ(17.5vw) translateY(-100%);
+}
+.slide-3d:has(.box-right > input[type=checkbox]:checked) > .box-main .box-top::before {
+  width: 100%;
+  height: 100%;
+  font-size: 250%;
+  color: #ffffff;
+  content: "ACTION";
+}
+.slide-3d:has(.box-right > input[type=checkbox]:checked) > .box-main .box-top::before {
+  transform: translate(-33%, -10%) rotateY(0deg);
+}
+.slide-3d:has(.box-right > input[type=checkbox]:checked) > .box-main .box-bottom {
+  background-color: #000;
+  transition: all 0.3s 0.6s;
+  transform: rotateX(180deg) translateZ(-17.5vw) translateY(-100%);
+}
+.slide-3d:has(.box-right > input[type=checkbox]:checked) > .box-main .box-bottom::before {
+  width: 100%;
+  height: 100%;
+  font-size: 250%;
+  color: #ffffff;
+  content: "DO";
+}
+.slide-3d:has(.box-right > input[type=checkbox]:checked) > .box-main .box-bottom::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transition: all 0.3s;
+  transform: translate(-83%, -10%) rotateY(180deg);
+}
+.slide-3d:has(.box-right > input[type=checkbox]:checked) > .box-main .box-front {
+  background-color: #000;
+  transition: all 0.3s 0.7s;
+  transform: rotateY(180deg) translateZ(-17.5vw) translateX(100%);
+}
+.slide-3d:has(.box-right > input[type=checkbox]:checked) > .box-main .box-front::before {
+  width: 100%;
+  height: 100%;
+  font-size: 250%;
+  color: #ffffff;
+  content: "CHECK";
+}
+.slide-3d:has(.box-right > input[type=checkbox]:checked) > .box-main .box-front::before {
+  transform: translate(-15%, -65%) rotateZ(-90deg);
+}
+.slide-3d:has(.box-right > input[type=checkbox]:checked) > .box-main .box-back {
+  background-color: #000;
+  transition: all 0.3s 0.5s;
+  transform: rotateY(0deg) translateZ(17.5vw) translateX(100%);
+}
+.slide-3d:has(.box-right > input[type=checkbox]:checked) > .box-main .box-back::before {
+  width: 100%;
+  height: 100%;
+  font-size: 250%;
+  color: #ffffff;
+  content: "PLAN";
+}
+.slide-3d:has(.box-right > input[type=checkbox]:checked) > .box-main .box-back::before {
+  transform: translate(-90%, -25%) rotateY(0deg) rotateZ(90deg);
+}
+.slide-3d:has(.box-right > input[type=checkbox]:checked) > .box-main .box-left {
+  opacity: 0;
+  transform: rotateY(180deg) translateZ(17.5vw);
+  scale: 0.6;
+}
+.slide-3d:has(.box-right > input[type=checkbox]:checked) > .box-main .box-right {
+  transform: rotateY(180deg) translateZ(-17.5vw);
+  scale: 0.6;
+}
+.slide-3d:has(.box-right > input[type=checkbox]:checked) > .box-main .box-right::before {
+  transform: translate(-80%, -10%) rotateY(180deg);
+}
+
+/* project://index.html */
+.slide-conclusion input[type=checkbox] {
+  display: none;
+}
+.slide-conclusion > .title {
+  left: 30% !important;
+  z-index: 1;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.slide-conclusion > .title::before {
+  font-size: 200%;
+  color: #000000;
+  content: "CSSだけで作ってみた感想";
+}
+.slide-conclusion > .title {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  width: 100%;
+  scale: 1.5;
+}
+.slide-conclusion > .title:has(input[type=checkbox]:checked) {
+  left: 1% !important;
+}
+.slide-conclusion > .title:has(input[type=checkbox]:checked)::before {
+  font-size: 200%;
+  color: #000000;
+  content: "CSSだけで作ってみた感想";
+}
+.slide-conclusion > .title:has(input[type=checkbox]:checked) {
+  position: absolute;
+  top: 1%;
+  left: 1%;
+  width: 100%;
+  scale: 1;
+}
+.slide-conclusion > .list {
+  position: absolute;
+  top: 50%;
+  left: 53%;
+  width: 100%;
+  font-size: 150%;
+  opacity: 0;
+  transition: all 0.5s;
+  transform: translateY(-50%) translateX(-50%);
+}
+.slide-conclusion > .list > p {
+  margin: 3% 0;
+}
+.slide-conclusion > .list > p:nth-child(1)::before {
+  width: 100%;
+  height: 100%;
+  font-size: 120%;
+  color: #000000;
+  content: "・自由度が高い！";
+}
+.slide-conclusion > .list > p:nth-child(2)::before {
+  width: 100%;
+  height: 100%;
+  font-size: 120%;
+  color: #000000;
+  content: "・アニメーション付きで共有できるのがいい！";
+}
+.slide-conclusion > .list > p:nth-child(3)::before {
+  width: 100%;
+  height: 100%;
+  font-size: 120%;
+  color: #000000;
+  content: "・静的なスタイルシート言語なのでしんどい・・・";
+}
+.slide-conclusion > .list > p:nth-child(4)::before {
+  width: 100%;
+  height: 100%;
+  font-size: 120%;
+  color: #000000;
+  content: "・次はJSフレームワークのSPAで作ってみたい!";
+}
+.slide-conclusion:has(.title > input[type=checkbox]:checked) > .list {
+  opacity: 1;
+}
+
+.navbar {
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 4rem;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+.navbar:hover {
+  opacity: 1;
+}
+.navbar > .slide-button {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+}
+.navbar > .slide-button > a {
+  position: relative;
+  display: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  cursor: pointer;
+  user-select: none;
+  background-color: rgb(59, 59, 59);
+  border-radius: 50%;
+}
+.navbar > .tool-button {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+}
+.navbar > .tool-button input[type=checkbox] {
+  display: none;
+}
+.navbar > .tool-button > a {
+  bottom: 1rem;
+  display: block;
+  width: 2.5rem;
+  height: 2.5rem;
+  color: #ffffff;
+  cursor: pointer;
+  user-select: none;
+  background-color: rgb(59, 59, 59);
+  border-radius: 50%;
+}
+.navbar > .tool-button > .togglePointer {
+  position: relative;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-left: 1rem;
+  line-height: 2.5rem;
+  cursor: pointer;
+  user-select: none;
+  background-color: rgb(59, 59, 59);
+  border-radius: 50%;
+}
+.navbar > .tool-button > .togglePointer:has(#pointer:checked) {
+  background-color: #ff4343;
+}
+.navbar > .tool-button > .togglePointer::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40%;
+  height: 40%;
+  content: "";
+  background-color: rgb(255, 255, 255);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+.navbar > .tool-button > .togglePointer::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60%;
+  height: 60%;
+  content: "";
+  border: #ffffff 1px solid;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+.navbar > .tool-button > .resetSlide {
+  display: grid;
+  place-items: center;
+}
+.navbar > .tool-button > .resetSlide > span {
+  position: relative;
+  display: block;
+  width: 60%;
+  height: 60%;
+  background-image: conic-gradient(#fff 0% 80%, transparent 80% 100%);
+  border-radius: 50%;
+}
+.navbar > .tool-button > .resetSlide > span::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60%;
+  height: 60%;
+  content: "";
+  background-color: rgb(59, 59, 59);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+.navbar > .tool-button > .resetSlide > span::after {
+  position: absolute;
+  top: 27%;
+  left: 16%;
+  width: 0;
+  height: 0;
+  content: "";
+  border-color: transparent transparent #ffffff transparent;
+  border-style: solid;
+  border-width: 0 7px 10px 7px;
+  transform: translate(-50%, -50%) rotate(20deg);
+}
+.navbar > .tool-button > .github-link {
+  padding: 7px;
+}
+.navbar > .tool-button > .listSlide {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  grid-row-gap: 0px;
+  grid-column-gap: 0px;
+  place-items: center;
+  padding: 10px;
+}
+.navbar > .tool-button > .listSlide > span {
+  position: relative;
+  display: block;
+  width: 8px;
+  height: 8px;
+  background-color: #ffffff;
+}
+
+#main:has(.slide:target:nth-child(1)) + .navbar > .slide-button > a:nth-child(0), #main:has(.slide:target:nth-child(1)) + .navbar > .slide-button > a:nth-child(2) {
+  display: block;
+}
+#main:has(.slide:target:nth-child(1)) + .navbar > .slide-button > a:nth-child(0)::before, #main:has(.slide:target:nth-child(1)) + .navbar > .slide-button > a:nth-child(0)::after, #main:has(.slide:target:nth-child(1)) + .navbar > .slide-button > a:nth-child(2)::before, #main:has(.slide:target:nth-child(1)) + .navbar > .slide-button > a:nth-child(2)::after {
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 4px;
+  font-size: 2rem;
+  text-align: center;
+  content: "";
+  user-select: none;
+  background-color: #fff;
+  border-radius: 1rem;
+}
+#main:has(.slide:target:nth-child(1)) + .navbar > .slide-button > a:nth-child(0) {
+  margin-left: 1rem;
+}
+#main:has(.slide:target:nth-child(1)) + .navbar > .slide-button > a:nth-child(0)::before {
+  top: 35%;
+  right: 30%;
+  transform: rotate(-25deg);
+}
+#main:has(.slide:target:nth-child(1)) + .navbar > .slide-button > a:nth-child(0)::after {
+  right: 30%;
+  bottom: 35%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(1)) + .navbar > .slide-button > a:nth-child(2) {
+  margin-left: auto;
+  margin-right: 1rem;
+}
+#main:has(.slide:target:nth-child(1)) + .navbar > .slide-button > a:nth-child(2)::before {
+  top: 35%;
+  left: 30%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(1)) + .navbar > .slide-button > a:nth-child(2)::after {
+  bottom: 35%;
+  left: 30%;
+  transform: rotate(-25deg);
+}
+
+#main:has(.slide:target:nth-child(2)) + .navbar > .slide-button > a:nth-child(1), #main:has(.slide:target:nth-child(2)) + .navbar > .slide-button > a:nth-child(3) {
+  display: block;
+}
+#main:has(.slide:target:nth-child(2)) + .navbar > .slide-button > a:nth-child(1)::before, #main:has(.slide:target:nth-child(2)) + .navbar > .slide-button > a:nth-child(1)::after, #main:has(.slide:target:nth-child(2)) + .navbar > .slide-button > a:nth-child(3)::before, #main:has(.slide:target:nth-child(2)) + .navbar > .slide-button > a:nth-child(3)::after {
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 4px;
+  font-size: 2rem;
+  text-align: center;
+  content: "";
+  user-select: none;
+  background-color: #fff;
+  border-radius: 1rem;
+}
+#main:has(.slide:target:nth-child(2)) + .navbar > .slide-button > a:nth-child(1) {
+  margin-left: 1rem;
+}
+#main:has(.slide:target:nth-child(2)) + .navbar > .slide-button > a:nth-child(1)::before {
+  top: 35%;
+  right: 30%;
+  transform: rotate(-25deg);
+}
+#main:has(.slide:target:nth-child(2)) + .navbar > .slide-button > a:nth-child(1)::after {
+  right: 30%;
+  bottom: 35%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(2)) + .navbar > .slide-button > a:nth-child(3) {
+  margin-right: 1rem;
+}
+#main:has(.slide:target:nth-child(2)) + .navbar > .slide-button > a:nth-child(3)::before {
+  top: 35%;
+  left: 30%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(2)) + .navbar > .slide-button > a:nth-child(3)::after {
+  bottom: 35%;
+  left: 30%;
+  transform: rotate(-25deg);
+}
+
+#main:has(.slide:target:nth-child(3)) + .navbar > .slide-button > a:nth-child(2), #main:has(.slide:target:nth-child(3)) + .navbar > .slide-button > a:nth-child(4) {
+  display: block;
+}
+#main:has(.slide:target:nth-child(3)) + .navbar > .slide-button > a:nth-child(2)::before, #main:has(.slide:target:nth-child(3)) + .navbar > .slide-button > a:nth-child(2)::after, #main:has(.slide:target:nth-child(3)) + .navbar > .slide-button > a:nth-child(4)::before, #main:has(.slide:target:nth-child(3)) + .navbar > .slide-button > a:nth-child(4)::after {
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 4px;
+  font-size: 2rem;
+  text-align: center;
+  content: "";
+  user-select: none;
+  background-color: #fff;
+  border-radius: 1rem;
+}
+#main:has(.slide:target:nth-child(3)) + .navbar > .slide-button > a:nth-child(2) {
+  margin-left: 1rem;
+}
+#main:has(.slide:target:nth-child(3)) + .navbar > .slide-button > a:nth-child(2)::before {
+  top: 35%;
+  right: 30%;
+  transform: rotate(-25deg);
+}
+#main:has(.slide:target:nth-child(3)) + .navbar > .slide-button > a:nth-child(2)::after {
+  right: 30%;
+  bottom: 35%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(3)) + .navbar > .slide-button > a:nth-child(4) {
+  margin-right: 1rem;
+}
+#main:has(.slide:target:nth-child(3)) + .navbar > .slide-button > a:nth-child(4)::before {
+  top: 35%;
+  left: 30%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(3)) + .navbar > .slide-button > a:nth-child(4)::after {
+  bottom: 35%;
+  left: 30%;
+  transform: rotate(-25deg);
+}
+
+#main:has(.slide:target:nth-child(4)) + .navbar > .slide-button > a:nth-child(3), #main:has(.slide:target:nth-child(4)) + .navbar > .slide-button > a:nth-child(5) {
+  display: block;
+}
+#main:has(.slide:target:nth-child(4)) + .navbar > .slide-button > a:nth-child(3)::before, #main:has(.slide:target:nth-child(4)) + .navbar > .slide-button > a:nth-child(3)::after, #main:has(.slide:target:nth-child(4)) + .navbar > .slide-button > a:nth-child(5)::before, #main:has(.slide:target:nth-child(4)) + .navbar > .slide-button > a:nth-child(5)::after {
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 4px;
+  font-size: 2rem;
+  text-align: center;
+  content: "";
+  user-select: none;
+  background-color: #fff;
+  border-radius: 1rem;
+}
+#main:has(.slide:target:nth-child(4)) + .navbar > .slide-button > a:nth-child(3) {
+  margin-left: 1rem;
+}
+#main:has(.slide:target:nth-child(4)) + .navbar > .slide-button > a:nth-child(3)::before {
+  top: 35%;
+  right: 30%;
+  transform: rotate(-25deg);
+}
+#main:has(.slide:target:nth-child(4)) + .navbar > .slide-button > a:nth-child(3)::after {
+  right: 30%;
+  bottom: 35%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(4)) + .navbar > .slide-button > a:nth-child(5) {
+  margin-right: 1rem;
+}
+#main:has(.slide:target:nth-child(4)) + .navbar > .slide-button > a:nth-child(5)::before {
+  top: 35%;
+  left: 30%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(4)) + .navbar > .slide-button > a:nth-child(5)::after {
+  bottom: 35%;
+  left: 30%;
+  transform: rotate(-25deg);
+}
+
+#main:has(.slide:target:nth-child(5)) + .navbar > .slide-button > a:nth-child(4), #main:has(.slide:target:nth-child(5)) + .navbar > .slide-button > a:nth-child(6) {
+  display: block;
+}
+#main:has(.slide:target:nth-child(5)) + .navbar > .slide-button > a:nth-child(4)::before, #main:has(.slide:target:nth-child(5)) + .navbar > .slide-button > a:nth-child(4)::after, #main:has(.slide:target:nth-child(5)) + .navbar > .slide-button > a:nth-child(6)::before, #main:has(.slide:target:nth-child(5)) + .navbar > .slide-button > a:nth-child(6)::after {
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 4px;
+  font-size: 2rem;
+  text-align: center;
+  content: "";
+  user-select: none;
+  background-color: #fff;
+  border-radius: 1rem;
+}
+#main:has(.slide:target:nth-child(5)) + .navbar > .slide-button > a:nth-child(4) {
+  margin-left: 1rem;
+}
+#main:has(.slide:target:nth-child(5)) + .navbar > .slide-button > a:nth-child(4)::before {
+  top: 35%;
+  right: 30%;
+  transform: rotate(-25deg);
+}
+#main:has(.slide:target:nth-child(5)) + .navbar > .slide-button > a:nth-child(4)::after {
+  right: 30%;
+  bottom: 35%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(5)) + .navbar > .slide-button > a:nth-child(6) {
+  margin-right: 1rem;
+}
+#main:has(.slide:target:nth-child(5)) + .navbar > .slide-button > a:nth-child(6)::before {
+  top: 35%;
+  left: 30%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(5)) + .navbar > .slide-button > a:nth-child(6)::after {
+  bottom: 35%;
+  left: 30%;
+  transform: rotate(-25deg);
+}
+
+#main:has(.slide:target:nth-child(6)) + .navbar > .slide-button > a:nth-child(5), #main:has(.slide:target:nth-child(6)) + .navbar > .slide-button > a:nth-child(7) {
+  display: block;
+}
+#main:has(.slide:target:nth-child(6)) + .navbar > .slide-button > a:nth-child(5)::before, #main:has(.slide:target:nth-child(6)) + .navbar > .slide-button > a:nth-child(5)::after, #main:has(.slide:target:nth-child(6)) + .navbar > .slide-button > a:nth-child(7)::before, #main:has(.slide:target:nth-child(6)) + .navbar > .slide-button > a:nth-child(7)::after {
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 4px;
+  font-size: 2rem;
+  text-align: center;
+  content: "";
+  user-select: none;
+  background-color: #fff;
+  border-radius: 1rem;
+}
+#main:has(.slide:target:nth-child(6)) + .navbar > .slide-button > a:nth-child(5) {
+  margin-left: 1rem;
+}
+#main:has(.slide:target:nth-child(6)) + .navbar > .slide-button > a:nth-child(5)::before {
+  top: 35%;
+  right: 30%;
+  transform: rotate(-25deg);
+}
+#main:has(.slide:target:nth-child(6)) + .navbar > .slide-button > a:nth-child(5)::after {
+  right: 30%;
+  bottom: 35%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(6)) + .navbar > .slide-button > a:nth-child(7) {
+  margin-right: 1rem;
+}
+#main:has(.slide:target:nth-child(6)) + .navbar > .slide-button > a:nth-child(7)::before {
+  top: 35%;
+  left: 30%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(6)) + .navbar > .slide-button > a:nth-child(7)::after {
+  bottom: 35%;
+  left: 30%;
+  transform: rotate(-25deg);
+}
+
+#main:has(.slide:target:nth-child(7)) + .navbar > .slide-button > a:nth-child(6), #main:has(.slide:target:nth-child(7)) + .navbar > .slide-button > a:nth-child(8) {
+  display: block;
+}
+#main:has(.slide:target:nth-child(7)) + .navbar > .slide-button > a:nth-child(6)::before, #main:has(.slide:target:nth-child(7)) + .navbar > .slide-button > a:nth-child(6)::after, #main:has(.slide:target:nth-child(7)) + .navbar > .slide-button > a:nth-child(8)::before, #main:has(.slide:target:nth-child(7)) + .navbar > .slide-button > a:nth-child(8)::after {
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 4px;
+  font-size: 2rem;
+  text-align: center;
+  content: "";
+  user-select: none;
+  background-color: #fff;
+  border-radius: 1rem;
+}
+#main:has(.slide:target:nth-child(7)) + .navbar > .slide-button > a:nth-child(6) {
+  margin-left: 1rem;
+}
+#main:has(.slide:target:nth-child(7)) + .navbar > .slide-button > a:nth-child(6)::before {
+  top: 35%;
+  right: 30%;
+  transform: rotate(-25deg);
+}
+#main:has(.slide:target:nth-child(7)) + .navbar > .slide-button > a:nth-child(6)::after {
+  right: 30%;
+  bottom: 35%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(7)) + .navbar > .slide-button > a:nth-child(8) {
+  margin-right: 1rem;
+}
+#main:has(.slide:target:nth-child(7)) + .navbar > .slide-button > a:nth-child(8)::before {
+  top: 35%;
+  left: 30%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(7)) + .navbar > .slide-button > a:nth-child(8)::after {
+  bottom: 35%;
+  left: 30%;
+  transform: rotate(-25deg);
+}
+
+#main:has(.slide:target:nth-child(8)) + .navbar > .slide-button > a:nth-child(7), #main:has(.slide:target:nth-child(8)) + .navbar > .slide-button > a:nth-child(9) {
+  display: block;
+}
+#main:has(.slide:target:nth-child(8)) + .navbar > .slide-button > a:nth-child(7)::before, #main:has(.slide:target:nth-child(8)) + .navbar > .slide-button > a:nth-child(7)::after, #main:has(.slide:target:nth-child(8)) + .navbar > .slide-button > a:nth-child(9)::before, #main:has(.slide:target:nth-child(8)) + .navbar > .slide-button > a:nth-child(9)::after {
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 4px;
+  font-size: 2rem;
+  text-align: center;
+  content: "";
+  user-select: none;
+  background-color: #fff;
+  border-radius: 1rem;
+}
+#main:has(.slide:target:nth-child(8)) + .navbar > .slide-button > a:nth-child(7) {
+  margin-left: 1rem;
+}
+#main:has(.slide:target:nth-child(8)) + .navbar > .slide-button > a:nth-child(7)::before {
+  top: 35%;
+  right: 30%;
+  transform: rotate(-25deg);
+}
+#main:has(.slide:target:nth-child(8)) + .navbar > .slide-button > a:nth-child(7)::after {
+  right: 30%;
+  bottom: 35%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(8)) + .navbar > .slide-button > a:nth-child(9) {
+  margin-right: 1rem;
+}
+#main:has(.slide:target:nth-child(8)) + .navbar > .slide-button > a:nth-child(9)::before {
+  top: 35%;
+  left: 30%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(8)) + .navbar > .slide-button > a:nth-child(9)::after {
+  bottom: 35%;
+  left: 30%;
+  transform: rotate(-25deg);
+}
+
+#main:has(.slide:target:nth-child(9)) + .navbar > .slide-button > a:nth-child(8), #main:has(.slide:target:nth-child(9)) + .navbar > .slide-button > a:nth-child(10) {
+  display: block;
+}
+#main:has(.slide:target:nth-child(9)) + .navbar > .slide-button > a:nth-child(8)::before, #main:has(.slide:target:nth-child(9)) + .navbar > .slide-button > a:nth-child(8)::after, #main:has(.slide:target:nth-child(9)) + .navbar > .slide-button > a:nth-child(10)::before, #main:has(.slide:target:nth-child(9)) + .navbar > .slide-button > a:nth-child(10)::after {
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 4px;
+  font-size: 2rem;
+  text-align: center;
+  content: "";
+  user-select: none;
+  background-color: #fff;
+  border-radius: 1rem;
+}
+#main:has(.slide:target:nth-child(9)) + .navbar > .slide-button > a:nth-child(8) {
+  margin-left: 1rem;
+}
+#main:has(.slide:target:nth-child(9)) + .navbar > .slide-button > a:nth-child(8)::before {
+  top: 35%;
+  right: 30%;
+  transform: rotate(-25deg);
+}
+#main:has(.slide:target:nth-child(9)) + .navbar > .slide-button > a:nth-child(8)::after {
+  right: 30%;
+  bottom: 35%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(9)) + .navbar > .slide-button > a:nth-child(10) {
+  margin-right: 1rem;
+}
+#main:has(.slide:target:nth-child(9)) + .navbar > .slide-button > a:nth-child(10)::before {
+  top: 35%;
+  left: 30%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(9)) + .navbar > .slide-button > a:nth-child(10)::after {
+  bottom: 35%;
+  left: 30%;
+  transform: rotate(-25deg);
+}
+
+#main:has(.slide:target:nth-child(10)) + .navbar > .slide-button > a:nth-child(9), #main:has(.slide:target:nth-child(10)) + .navbar > .slide-button > a:nth-child(11) {
+  display: block;
+}
+#main:has(.slide:target:nth-child(10)) + .navbar > .slide-button > a:nth-child(9)::before, #main:has(.slide:target:nth-child(10)) + .navbar > .slide-button > a:nth-child(9)::after, #main:has(.slide:target:nth-child(10)) + .navbar > .slide-button > a:nth-child(11)::before, #main:has(.slide:target:nth-child(10)) + .navbar > .slide-button > a:nth-child(11)::after {
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 4px;
+  font-size: 2rem;
+  text-align: center;
+  content: "";
+  user-select: none;
+  background-color: #fff;
+  border-radius: 1rem;
+}
+#main:has(.slide:target:nth-child(10)) + .navbar > .slide-button > a:nth-child(9) {
+  margin-left: 1rem;
+}
+#main:has(.slide:target:nth-child(10)) + .navbar > .slide-button > a:nth-child(9)::before {
+  top: 35%;
+  right: 30%;
+  transform: rotate(-25deg);
+}
+#main:has(.slide:target:nth-child(10)) + .navbar > .slide-button > a:nth-child(9)::after {
+  right: 30%;
+  bottom: 35%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(10)) + .navbar > .slide-button > a:nth-child(11) {
+  margin-right: 1rem;
+}
+#main:has(.slide:target:nth-child(10)) + .navbar > .slide-button > a:nth-child(11)::before {
+  top: 35%;
+  left: 30%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(10)) + .navbar > .slide-button > a:nth-child(11)::after {
+  bottom: 35%;
+  left: 30%;
+  transform: rotate(-25deg);
+}
+
+#main:has(.slide:target:nth-child(11)) + .navbar > .slide-button > a:nth-child(10), #main:has(.slide:target:nth-child(11)) + .navbar > .slide-button > a:nth-child(12) {
+  display: block;
+}
+#main:has(.slide:target:nth-child(11)) + .navbar > .slide-button > a:nth-child(10)::before, #main:has(.slide:target:nth-child(11)) + .navbar > .slide-button > a:nth-child(10)::after, #main:has(.slide:target:nth-child(11)) + .navbar > .slide-button > a:nth-child(12)::before, #main:has(.slide:target:nth-child(11)) + .navbar > .slide-button > a:nth-child(12)::after {
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 4px;
+  font-size: 2rem;
+  text-align: center;
+  content: "";
+  user-select: none;
+  background-color: #fff;
+  border-radius: 1rem;
+}
+#main:has(.slide:target:nth-child(11)) + .navbar > .slide-button > a:nth-child(10) {
+  margin-left: 1rem;
+}
+#main:has(.slide:target:nth-child(11)) + .navbar > .slide-button > a:nth-child(10)::before {
+  top: 35%;
+  right: 30%;
+  transform: rotate(-25deg);
+}
+#main:has(.slide:target:nth-child(11)) + .navbar > .slide-button > a:nth-child(10)::after {
+  right: 30%;
+  bottom: 35%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(11)) + .navbar > .slide-button > a:nth-child(12) {
+  margin-right: 1rem;
+}
+#main:has(.slide:target:nth-child(11)) + .navbar > .slide-button > a:nth-child(12)::before {
+  top: 35%;
+  left: 30%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(11)) + .navbar > .slide-button > a:nth-child(12)::after {
+  bottom: 35%;
+  left: 30%;
+  transform: rotate(-25deg);
+}
+
+#main:has(.slide:target:nth-child(12)) + .navbar > .slide-button > a:nth-child(11), #main:has(.slide:target:nth-child(12)) + .navbar > .slide-button > a:nth-child(13) {
+  display: block;
+}
+#main:has(.slide:target:nth-child(12)) + .navbar > .slide-button > a:nth-child(11)::before, #main:has(.slide:target:nth-child(12)) + .navbar > .slide-button > a:nth-child(11)::after, #main:has(.slide:target:nth-child(12)) + .navbar > .slide-button > a:nth-child(13)::before, #main:has(.slide:target:nth-child(12)) + .navbar > .slide-button > a:nth-child(13)::after {
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 4px;
+  font-size: 2rem;
+  text-align: center;
+  content: "";
+  user-select: none;
+  background-color: #fff;
+  border-radius: 1rem;
+}
+#main:has(.slide:target:nth-child(12)) + .navbar > .slide-button > a:nth-child(11) {
+  margin-left: 1rem;
+}
+#main:has(.slide:target:nth-child(12)) + .navbar > .slide-button > a:nth-child(11)::before {
+  top: 35%;
+  right: 30%;
+  transform: rotate(-25deg);
+}
+#main:has(.slide:target:nth-child(12)) + .navbar > .slide-button > a:nth-child(11)::after {
+  right: 30%;
+  bottom: 35%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(12)) + .navbar > .slide-button > a:nth-child(13) {
+  margin-right: 1rem;
+}
+#main:has(.slide:target:nth-child(12)) + .navbar > .slide-button > a:nth-child(13)::before {
+  top: 35%;
+  left: 30%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(12)) + .navbar > .slide-button > a:nth-child(13)::after {
+  bottom: 35%;
+  left: 30%;
+  transform: rotate(-25deg);
+}
+
+#main:has(.slide:target:nth-child(13)) + .navbar > .slide-button > a:nth-child(12), #main:has(.slide:target:nth-child(13)) + .navbar > .slide-button > a:nth-child(14) {
+  display: block;
+}
+#main:has(.slide:target:nth-child(13)) + .navbar > .slide-button > a:nth-child(12)::before, #main:has(.slide:target:nth-child(13)) + .navbar > .slide-button > a:nth-child(12)::after, #main:has(.slide:target:nth-child(13)) + .navbar > .slide-button > a:nth-child(14)::before, #main:has(.slide:target:nth-child(13)) + .navbar > .slide-button > a:nth-child(14)::after {
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 4px;
+  font-size: 2rem;
+  text-align: center;
+  content: "";
+  user-select: none;
+  background-color: #fff;
+  border-radius: 1rem;
+}
+#main:has(.slide:target:nth-child(13)) + .navbar > .slide-button > a:nth-child(12) {
+  margin-left: 1rem;
+}
+#main:has(.slide:target:nth-child(13)) + .navbar > .slide-button > a:nth-child(12)::before {
+  top: 35%;
+  right: 30%;
+  transform: rotate(-25deg);
+}
+#main:has(.slide:target:nth-child(13)) + .navbar > .slide-button > a:nth-child(12)::after {
+  right: 30%;
+  bottom: 35%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(13)) + .navbar > .slide-button > a:nth-child(14) {
+  margin-right: 1rem;
+}
+#main:has(.slide:target:nth-child(13)) + .navbar > .slide-button > a:nth-child(14)::before {
+  top: 35%;
+  left: 30%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(13)) + .navbar > .slide-button > a:nth-child(14)::after {
+  bottom: 35%;
+  left: 30%;
+  transform: rotate(-25deg);
+}
+
+#main:has(.slide:target:nth-child(14)) + .navbar > .slide-button > a:nth-child(13), #main:has(.slide:target:nth-child(14)) + .navbar > .slide-button > a:nth-child(15) {
+  display: block;
+}
+#main:has(.slide:target:nth-child(14)) + .navbar > .slide-button > a:nth-child(13)::before, #main:has(.slide:target:nth-child(14)) + .navbar > .slide-button > a:nth-child(13)::after, #main:has(.slide:target:nth-child(14)) + .navbar > .slide-button > a:nth-child(15)::before, #main:has(.slide:target:nth-child(14)) + .navbar > .slide-button > a:nth-child(15)::after {
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 4px;
+  font-size: 2rem;
+  text-align: center;
+  content: "";
+  user-select: none;
+  background-color: #fff;
+  border-radius: 1rem;
+}
+#main:has(.slide:target:nth-child(14)) + .navbar > .slide-button > a:nth-child(13) {
+  margin-left: 1rem;
+}
+#main:has(.slide:target:nth-child(14)) + .navbar > .slide-button > a:nth-child(13)::before {
+  top: 35%;
+  right: 30%;
+  transform: rotate(-25deg);
+}
+#main:has(.slide:target:nth-child(14)) + .navbar > .slide-button > a:nth-child(13)::after {
+  right: 30%;
+  bottom: 35%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(14)) + .navbar > .slide-button > a:nth-child(15) {
+  margin-right: 1rem;
+}
+#main:has(.slide:target:nth-child(14)) + .navbar > .slide-button > a:nth-child(15)::before {
+  top: 35%;
+  left: 30%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(14)) + .navbar > .slide-button > a:nth-child(15)::after {
+  bottom: 35%;
+  left: 30%;
+  transform: rotate(-25deg);
+}
+
+#main:has(.slide:target:nth-child(15)) + .navbar > .slide-button > a:nth-child(14), #main:has(.slide:target:nth-child(15)) + .navbar > .slide-button > a:nth-child(16) {
+  display: block;
+}
+#main:has(.slide:target:nth-child(15)) + .navbar > .slide-button > a:nth-child(14)::before, #main:has(.slide:target:nth-child(15)) + .navbar > .slide-button > a:nth-child(14)::after, #main:has(.slide:target:nth-child(15)) + .navbar > .slide-button > a:nth-child(16)::before, #main:has(.slide:target:nth-child(15)) + .navbar > .slide-button > a:nth-child(16)::after {
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 4px;
+  font-size: 2rem;
+  text-align: center;
+  content: "";
+  user-select: none;
+  background-color: #fff;
+  border-radius: 1rem;
+}
+#main:has(.slide:target:nth-child(15)) + .navbar > .slide-button > a:nth-child(14) {
+  margin-left: 1rem;
+}
+#main:has(.slide:target:nth-child(15)) + .navbar > .slide-button > a:nth-child(14)::before {
+  top: 35%;
+  right: 30%;
+  transform: rotate(-25deg);
+}
+#main:has(.slide:target:nth-child(15)) + .navbar > .slide-button > a:nth-child(14)::after {
+  right: 30%;
+  bottom: 35%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(15)) + .navbar > .slide-button > a:nth-child(16) {
+  margin-right: 1rem;
+}
+#main:has(.slide:target:nth-child(15)) + .navbar > .slide-button > a:nth-child(16)::before {
+  top: 35%;
+  left: 30%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(15)) + .navbar > .slide-button > a:nth-child(16)::after {
+  bottom: 35%;
+  left: 30%;
+  transform: rotate(-25deg);
+}
+
+#main:has(.slide:target:nth-child(16)) + .navbar > .slide-button > a:nth-child(15), #main:has(.slide:target:nth-child(16)) + .navbar > .slide-button > a:nth-child(17) {
+  display: block;
+}
+#main:has(.slide:target:nth-child(16)) + .navbar > .slide-button > a:nth-child(15)::before, #main:has(.slide:target:nth-child(16)) + .navbar > .slide-button > a:nth-child(15)::after, #main:has(.slide:target:nth-child(16)) + .navbar > .slide-button > a:nth-child(17)::before, #main:has(.slide:target:nth-child(16)) + .navbar > .slide-button > a:nth-child(17)::after {
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 4px;
+  font-size: 2rem;
+  text-align: center;
+  content: "";
+  user-select: none;
+  background-color: #fff;
+  border-radius: 1rem;
+}
+#main:has(.slide:target:nth-child(16)) + .navbar > .slide-button > a:nth-child(15) {
+  margin-left: 1rem;
+}
+#main:has(.slide:target:nth-child(16)) + .navbar > .slide-button > a:nth-child(15)::before {
+  top: 35%;
+  right: 30%;
+  transform: rotate(-25deg);
+}
+#main:has(.slide:target:nth-child(16)) + .navbar > .slide-button > a:nth-child(15)::after {
+  right: 30%;
+  bottom: 35%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(16)) + .navbar > .slide-button > a:nth-child(17) {
+  margin-right: 1rem;
+}
+#main:has(.slide:target:nth-child(16)) + .navbar > .slide-button > a:nth-child(17)::before {
+  top: 35%;
+  left: 30%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(16)) + .navbar > .slide-button > a:nth-child(17)::after {
+  bottom: 35%;
+  left: 30%;
+  transform: rotate(-25deg);
+}
+
+#main:has(.slide:target:nth-child(17)) + .navbar > .slide-button > a:nth-child(16), #main:has(.slide:target:nth-child(17)) + .navbar > .slide-button > a:nth-child(18) {
+  display: block;
+}
+#main:has(.slide:target:nth-child(17)) + .navbar > .slide-button > a:nth-child(16)::before, #main:has(.slide:target:nth-child(17)) + .navbar > .slide-button > a:nth-child(16)::after, #main:has(.slide:target:nth-child(17)) + .navbar > .slide-button > a:nth-child(18)::before, #main:has(.slide:target:nth-child(17)) + .navbar > .slide-button > a:nth-child(18)::after {
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 4px;
+  font-size: 2rem;
+  text-align: center;
+  content: "";
+  user-select: none;
+  background-color: #fff;
+  border-radius: 1rem;
+}
+#main:has(.slide:target:nth-child(17)) + .navbar > .slide-button > a:nth-child(16) {
+  margin-left: 1rem;
+}
+#main:has(.slide:target:nth-child(17)) + .navbar > .slide-button > a:nth-child(16)::before {
+  top: 35%;
+  right: 30%;
+  transform: rotate(-25deg);
+}
+#main:has(.slide:target:nth-child(17)) + .navbar > .slide-button > a:nth-child(16)::after {
+  right: 30%;
+  bottom: 35%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(17)) + .navbar > .slide-button > a:nth-child(18) {
+  margin-right: 1rem;
+}
+#main:has(.slide:target:nth-child(17)) + .navbar > .slide-button > a:nth-child(18)::before {
+  top: 35%;
+  left: 30%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(17)) + .navbar > .slide-button > a:nth-child(18)::after {
+  bottom: 35%;
+  left: 30%;
+  transform: rotate(-25deg);
+}
+
+#main:has(.slide:target:nth-child(18)) + .navbar > .slide-button > a:nth-child(17), #main:has(.slide:target:nth-child(18)) + .navbar > .slide-button > a:nth-child(19) {
+  display: block;
+}
+#main:has(.slide:target:nth-child(18)) + .navbar > .slide-button > a:nth-child(17)::before, #main:has(.slide:target:nth-child(18)) + .navbar > .slide-button > a:nth-child(17)::after, #main:has(.slide:target:nth-child(18)) + .navbar > .slide-button > a:nth-child(19)::before, #main:has(.slide:target:nth-child(18)) + .navbar > .slide-button > a:nth-child(19)::after {
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 4px;
+  font-size: 2rem;
+  text-align: center;
+  content: "";
+  user-select: none;
+  background-color: #fff;
+  border-radius: 1rem;
+}
+#main:has(.slide:target:nth-child(18)) + .navbar > .slide-button > a:nth-child(17) {
+  margin-left: 1rem;
+}
+#main:has(.slide:target:nth-child(18)) + .navbar > .slide-button > a:nth-child(17)::before {
+  top: 35%;
+  right: 30%;
+  transform: rotate(-25deg);
+}
+#main:has(.slide:target:nth-child(18)) + .navbar > .slide-button > a:nth-child(17)::after {
+  right: 30%;
+  bottom: 35%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(18)) + .navbar > .slide-button > a:nth-child(19) {
+  margin-right: 1rem;
+}
+#main:has(.slide:target:nth-child(18)) + .navbar > .slide-button > a:nth-child(19)::before {
+  top: 35%;
+  left: 30%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(18)) + .navbar > .slide-button > a:nth-child(19)::after {
+  bottom: 35%;
+  left: 30%;
+  transform: rotate(-25deg);
+}
+
+#main:has(.slide:target:nth-child(19)) + .navbar > .slide-button > a:nth-child(18), #main:has(.slide:target:nth-child(19)) + .navbar > .slide-button > a:nth-child(20) {
+  display: block;
+}
+#main:has(.slide:target:nth-child(19)) + .navbar > .slide-button > a:nth-child(18)::before, #main:has(.slide:target:nth-child(19)) + .navbar > .slide-button > a:nth-child(18)::after, #main:has(.slide:target:nth-child(19)) + .navbar > .slide-button > a:nth-child(20)::before, #main:has(.slide:target:nth-child(19)) + .navbar > .slide-button > a:nth-child(20)::after {
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 4px;
+  font-size: 2rem;
+  text-align: center;
+  content: "";
+  user-select: none;
+  background-color: #fff;
+  border-radius: 1rem;
+}
+#main:has(.slide:target:nth-child(19)) + .navbar > .slide-button > a:nth-child(18) {
+  margin-left: 1rem;
+}
+#main:has(.slide:target:nth-child(19)) + .navbar > .slide-button > a:nth-child(18)::before {
+  top: 35%;
+  right: 30%;
+  transform: rotate(-25deg);
+}
+#main:has(.slide:target:nth-child(19)) + .navbar > .slide-button > a:nth-child(18)::after {
+  right: 30%;
+  bottom: 35%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(19)) + .navbar > .slide-button > a:nth-child(20) {
+  margin-right: 1rem;
+}
+#main:has(.slide:target:nth-child(19)) + .navbar > .slide-button > a:nth-child(20)::before {
+  top: 35%;
+  left: 30%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(19)) + .navbar > .slide-button > a:nth-child(20)::after {
+  bottom: 35%;
+  left: 30%;
+  transform: rotate(-25deg);
+}
+
+#main:has(.slide:target:nth-child(20)) + .navbar > .slide-button > a:nth-child(19), #main:has(.slide:target:nth-child(20)) + .navbar > .slide-button > a:nth-child(21) {
+  display: block;
+}
+#main:has(.slide:target:nth-child(20)) + .navbar > .slide-button > a:nth-child(19)::before, #main:has(.slide:target:nth-child(20)) + .navbar > .slide-button > a:nth-child(19)::after, #main:has(.slide:target:nth-child(20)) + .navbar > .slide-button > a:nth-child(21)::before, #main:has(.slide:target:nth-child(20)) + .navbar > .slide-button > a:nth-child(21)::after {
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 4px;
+  font-size: 2rem;
+  text-align: center;
+  content: "";
+  user-select: none;
+  background-color: #fff;
+  border-radius: 1rem;
+}
+#main:has(.slide:target:nth-child(20)) + .navbar > .slide-button > a:nth-child(19) {
+  margin-left: 1rem;
+}
+#main:has(.slide:target:nth-child(20)) + .navbar > .slide-button > a:nth-child(19)::before {
+  top: 35%;
+  right: 30%;
+  transform: rotate(-25deg);
+}
+#main:has(.slide:target:nth-child(20)) + .navbar > .slide-button > a:nth-child(19)::after {
+  right: 30%;
+  bottom: 35%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(20)) + .navbar > .slide-button > a:nth-child(21) {
+  margin-right: 1rem;
+}
+#main:has(.slide:target:nth-child(20)) + .navbar > .slide-button > a:nth-child(21)::before {
+  top: 35%;
+  left: 30%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(20)) + .navbar > .slide-button > a:nth-child(21)::after {
+  bottom: 35%;
+  left: 30%;
+  transform: rotate(-25deg);
+}
+
+#main:has(.slide:target:nth-child(21)) + .navbar > .slide-button > a:nth-child(20), #main:has(.slide:target:nth-child(21)) + .navbar > .slide-button > a:nth-child(22) {
+  display: block;
+}
+#main:has(.slide:target:nth-child(21)) + .navbar > .slide-button > a:nth-child(20)::before, #main:has(.slide:target:nth-child(21)) + .navbar > .slide-button > a:nth-child(20)::after, #main:has(.slide:target:nth-child(21)) + .navbar > .slide-button > a:nth-child(22)::before, #main:has(.slide:target:nth-child(21)) + .navbar > .slide-button > a:nth-child(22)::after {
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 4px;
+  font-size: 2rem;
+  text-align: center;
+  content: "";
+  user-select: none;
+  background-color: #fff;
+  border-radius: 1rem;
+}
+#main:has(.slide:target:nth-child(21)) + .navbar > .slide-button > a:nth-child(20) {
+  margin-left: 1rem;
+}
+#main:has(.slide:target:nth-child(21)) + .navbar > .slide-button > a:nth-child(20)::before {
+  top: 35%;
+  right: 30%;
+  transform: rotate(-25deg);
+}
+#main:has(.slide:target:nth-child(21)) + .navbar > .slide-button > a:nth-child(20)::after {
+  right: 30%;
+  bottom: 35%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(21)) + .navbar > .slide-button > a:nth-child(22) {
+  margin-right: 1rem;
+}
+#main:has(.slide:target:nth-child(21)) + .navbar > .slide-button > a:nth-child(22)::before {
+  top: 35%;
+  left: 30%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(21)) + .navbar > .slide-button > a:nth-child(22)::after {
+  bottom: 35%;
+  left: 30%;
+  transform: rotate(-25deg);
+}
+
+#main:has(.slide:target:nth-child(22)) + .navbar > .slide-button > a:nth-child(21), #main:has(.slide:target:nth-child(22)) + .navbar > .slide-button > a:nth-child(23) {
+  display: block;
+}
+#main:has(.slide:target:nth-child(22)) + .navbar > .slide-button > a:nth-child(21)::before, #main:has(.slide:target:nth-child(22)) + .navbar > .slide-button > a:nth-child(21)::after, #main:has(.slide:target:nth-child(22)) + .navbar > .slide-button > a:nth-child(23)::before, #main:has(.slide:target:nth-child(22)) + .navbar > .slide-button > a:nth-child(23)::after {
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 4px;
+  font-size: 2rem;
+  text-align: center;
+  content: "";
+  user-select: none;
+  background-color: #fff;
+  border-radius: 1rem;
+}
+#main:has(.slide:target:nth-child(22)) + .navbar > .slide-button > a:nth-child(21) {
+  margin-left: 1rem;
+}
+#main:has(.slide:target:nth-child(22)) + .navbar > .slide-button > a:nth-child(21)::before {
+  top: 35%;
+  right: 30%;
+  transform: rotate(-25deg);
+}
+#main:has(.slide:target:nth-child(22)) + .navbar > .slide-button > a:nth-child(21)::after {
+  right: 30%;
+  bottom: 35%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(22)) + .navbar > .slide-button > a:nth-child(23) {
+  margin-right: 1rem;
+}
+#main:has(.slide:target:nth-child(22)) + .navbar > .slide-button > a:nth-child(23)::before {
+  top: 35%;
+  left: 30%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(22)) + .navbar > .slide-button > a:nth-child(23)::after {
+  bottom: 35%;
+  left: 30%;
+  transform: rotate(-25deg);
+}
+
+#main:has(.slide:target:nth-child(23)) + .navbar > .slide-button > a:nth-child(22), #main:has(.slide:target:nth-child(23)) + .navbar > .slide-button > a:nth-child(24) {
+  display: block;
+}
+#main:has(.slide:target:nth-child(23)) + .navbar > .slide-button > a:nth-child(22)::before, #main:has(.slide:target:nth-child(23)) + .navbar > .slide-button > a:nth-child(22)::after, #main:has(.slide:target:nth-child(23)) + .navbar > .slide-button > a:nth-child(24)::before, #main:has(.slide:target:nth-child(23)) + .navbar > .slide-button > a:nth-child(24)::after {
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 4px;
+  font-size: 2rem;
+  text-align: center;
+  content: "";
+  user-select: none;
+  background-color: #fff;
+  border-radius: 1rem;
+}
+#main:has(.slide:target:nth-child(23)) + .navbar > .slide-button > a:nth-child(22) {
+  margin-left: 1rem;
+}
+#main:has(.slide:target:nth-child(23)) + .navbar > .slide-button > a:nth-child(22)::before {
+  top: 35%;
+  right: 30%;
+  transform: rotate(-25deg);
+}
+#main:has(.slide:target:nth-child(23)) + .navbar > .slide-button > a:nth-child(22)::after {
+  right: 30%;
+  bottom: 35%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(23)) + .navbar > .slide-button > a:nth-child(24) {
+  margin-right: 1rem;
+}
+#main:has(.slide:target:nth-child(23)) + .navbar > .slide-button > a:nth-child(24)::before {
+  top: 35%;
+  left: 30%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(23)) + .navbar > .slide-button > a:nth-child(24)::after {
+  bottom: 35%;
+  left: 30%;
+  transform: rotate(-25deg);
+}
+
+#main:has(.slide:target:nth-child(24)) + .navbar > .slide-button > a:nth-child(23), #main:has(.slide:target:nth-child(24)) + .navbar > .slide-button > a:nth-child(25) {
+  display: block;
+}
+#main:has(.slide:target:nth-child(24)) + .navbar > .slide-button > a:nth-child(23)::before, #main:has(.slide:target:nth-child(24)) + .navbar > .slide-button > a:nth-child(23)::after, #main:has(.slide:target:nth-child(24)) + .navbar > .slide-button > a:nth-child(25)::before, #main:has(.slide:target:nth-child(24)) + .navbar > .slide-button > a:nth-child(25)::after {
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 4px;
+  font-size: 2rem;
+  text-align: center;
+  content: "";
+  user-select: none;
+  background-color: #fff;
+  border-radius: 1rem;
+}
+#main:has(.slide:target:nth-child(24)) + .navbar > .slide-button > a:nth-child(23) {
+  margin-left: 1rem;
+}
+#main:has(.slide:target:nth-child(24)) + .navbar > .slide-button > a:nth-child(23)::before {
+  top: 35%;
+  right: 30%;
+  transform: rotate(-25deg);
+}
+#main:has(.slide:target:nth-child(24)) + .navbar > .slide-button > a:nth-child(23)::after {
+  right: 30%;
+  bottom: 35%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(24)) + .navbar > .slide-button > a:nth-child(25) {
+  margin-right: 1rem;
+}
+#main:has(.slide:target:nth-child(24)) + .navbar > .slide-button > a:nth-child(25)::before {
+  top: 35%;
+  left: 30%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(24)) + .navbar > .slide-button > a:nth-child(25)::after {
+  bottom: 35%;
+  left: 30%;
+  transform: rotate(-25deg);
+}
+
+#main:has(.slide:target:nth-child(25)) + .navbar > .slide-button > a:nth-child(24), #main:has(.slide:target:nth-child(25)) + .navbar > .slide-button > a:nth-child(26) {
+  display: block;
+}
+#main:has(.slide:target:nth-child(25)) + .navbar > .slide-button > a:nth-child(24)::before, #main:has(.slide:target:nth-child(25)) + .navbar > .slide-button > a:nth-child(24)::after, #main:has(.slide:target:nth-child(25)) + .navbar > .slide-button > a:nth-child(26)::before, #main:has(.slide:target:nth-child(25)) + .navbar > .slide-button > a:nth-child(26)::after {
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 4px;
+  font-size: 2rem;
+  text-align: center;
+  content: "";
+  user-select: none;
+  background-color: #fff;
+  border-radius: 1rem;
+}
+#main:has(.slide:target:nth-child(25)) + .navbar > .slide-button > a:nth-child(24) {
+  margin-left: 1rem;
+}
+#main:has(.slide:target:nth-child(25)) + .navbar > .slide-button > a:nth-child(24)::before {
+  top: 35%;
+  right: 30%;
+  transform: rotate(-25deg);
+}
+#main:has(.slide:target:nth-child(25)) + .navbar > .slide-button > a:nth-child(24)::after {
+  right: 30%;
+  bottom: 35%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(25)) + .navbar > .slide-button > a:nth-child(26) {
+  margin-right: 1rem;
+}
+#main:has(.slide:target:nth-child(25)) + .navbar > .slide-button > a:nth-child(26)::before {
+  top: 35%;
+  left: 30%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(25)) + .navbar > .slide-button > a:nth-child(26)::after {
+  bottom: 35%;
+  left: 30%;
+  transform: rotate(-25deg);
+}
+
+#main:has(.slide:target:nth-child(26)) + .navbar > .slide-button > a:nth-child(25), #main:has(.slide:target:nth-child(26)) + .navbar > .slide-button > a:nth-child(27) {
+  display: block;
+}
+#main:has(.slide:target:nth-child(26)) + .navbar > .slide-button > a:nth-child(25)::before, #main:has(.slide:target:nth-child(26)) + .navbar > .slide-button > a:nth-child(25)::after, #main:has(.slide:target:nth-child(26)) + .navbar > .slide-button > a:nth-child(27)::before, #main:has(.slide:target:nth-child(26)) + .navbar > .slide-button > a:nth-child(27)::after {
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 4px;
+  font-size: 2rem;
+  text-align: center;
+  content: "";
+  user-select: none;
+  background-color: #fff;
+  border-radius: 1rem;
+}
+#main:has(.slide:target:nth-child(26)) + .navbar > .slide-button > a:nth-child(25) {
+  margin-left: 1rem;
+}
+#main:has(.slide:target:nth-child(26)) + .navbar > .slide-button > a:nth-child(25)::before {
+  top: 35%;
+  right: 30%;
+  transform: rotate(-25deg);
+}
+#main:has(.slide:target:nth-child(26)) + .navbar > .slide-button > a:nth-child(25)::after {
+  right: 30%;
+  bottom: 35%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(26)) + .navbar > .slide-button > a:nth-child(27) {
+  margin-right: 1rem;
+}
+#main:has(.slide:target:nth-child(26)) + .navbar > .slide-button > a:nth-child(27)::before {
+  top: 35%;
+  left: 30%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(26)) + .navbar > .slide-button > a:nth-child(27)::after {
+  bottom: 35%;
+  left: 30%;
+  transform: rotate(-25deg);
+}
+
+#main:has(.slide:target:nth-child(27)) + .navbar > .slide-button > a:nth-child(26), #main:has(.slide:target:nth-child(27)) + .navbar > .slide-button > a:nth-child(28) {
+  display: block;
+}
+#main:has(.slide:target:nth-child(27)) + .navbar > .slide-button > a:nth-child(26)::before, #main:has(.slide:target:nth-child(27)) + .navbar > .slide-button > a:nth-child(26)::after, #main:has(.slide:target:nth-child(27)) + .navbar > .slide-button > a:nth-child(28)::before, #main:has(.slide:target:nth-child(27)) + .navbar > .slide-button > a:nth-child(28)::after {
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 4px;
+  font-size: 2rem;
+  text-align: center;
+  content: "";
+  user-select: none;
+  background-color: #fff;
+  border-radius: 1rem;
+}
+#main:has(.slide:target:nth-child(27)) + .navbar > .slide-button > a:nth-child(26) {
+  margin-left: 1rem;
+}
+#main:has(.slide:target:nth-child(27)) + .navbar > .slide-button > a:nth-child(26)::before {
+  top: 35%;
+  right: 30%;
+  transform: rotate(-25deg);
+}
+#main:has(.slide:target:nth-child(27)) + .navbar > .slide-button > a:nth-child(26)::after {
+  right: 30%;
+  bottom: 35%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(27)) + .navbar > .slide-button > a:nth-child(28) {
+  margin-right: 1rem;
+}
+#main:has(.slide:target:nth-child(27)) + .navbar > .slide-button > a:nth-child(28)::before {
+  top: 35%;
+  left: 30%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(27)) + .navbar > .slide-button > a:nth-child(28)::after {
+  bottom: 35%;
+  left: 30%;
+  transform: rotate(-25deg);
+}
+
+#main:has(.slide:target:nth-child(28)) + .navbar > .slide-button > a:nth-child(27), #main:has(.slide:target:nth-child(28)) + .navbar > .slide-button > a:nth-child(29) {
+  display: block;
+}
+#main:has(.slide:target:nth-child(28)) + .navbar > .slide-button > a:nth-child(27)::before, #main:has(.slide:target:nth-child(28)) + .navbar > .slide-button > a:nth-child(27)::after, #main:has(.slide:target:nth-child(28)) + .navbar > .slide-button > a:nth-child(29)::before, #main:has(.slide:target:nth-child(28)) + .navbar > .slide-button > a:nth-child(29)::after {
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 4px;
+  font-size: 2rem;
+  text-align: center;
+  content: "";
+  user-select: none;
+  background-color: #fff;
+  border-radius: 1rem;
+}
+#main:has(.slide:target:nth-child(28)) + .navbar > .slide-button > a:nth-child(27) {
+  margin-left: 1rem;
+}
+#main:has(.slide:target:nth-child(28)) + .navbar > .slide-button > a:nth-child(27)::before {
+  top: 35%;
+  right: 30%;
+  transform: rotate(-25deg);
+}
+#main:has(.slide:target:nth-child(28)) + .navbar > .slide-button > a:nth-child(27)::after {
+  right: 30%;
+  bottom: 35%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(28)) + .navbar > .slide-button > a:nth-child(29) {
+  margin-right: 1rem;
+}
+#main:has(.slide:target:nth-child(28)) + .navbar > .slide-button > a:nth-child(29)::before {
+  top: 35%;
+  left: 30%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(28)) + .navbar > .slide-button > a:nth-child(29)::after {
+  bottom: 35%;
+  left: 30%;
+  transform: rotate(-25deg);
+}
+
+#main:has(.slide:target:nth-child(29)) + .navbar > .slide-button > a:nth-child(28), #main:has(.slide:target:nth-child(29)) + .navbar > .slide-button > a:nth-child(30) {
+  display: block;
+}
+#main:has(.slide:target:nth-child(29)) + .navbar > .slide-button > a:nth-child(28)::before, #main:has(.slide:target:nth-child(29)) + .navbar > .slide-button > a:nth-child(28)::after, #main:has(.slide:target:nth-child(29)) + .navbar > .slide-button > a:nth-child(30)::before, #main:has(.slide:target:nth-child(29)) + .navbar > .slide-button > a:nth-child(30)::after {
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 4px;
+  font-size: 2rem;
+  text-align: center;
+  content: "";
+  user-select: none;
+  background-color: #fff;
+  border-radius: 1rem;
+}
+#main:has(.slide:target:nth-child(29)) + .navbar > .slide-button > a:nth-child(28) {
+  margin-left: 1rem;
+}
+#main:has(.slide:target:nth-child(29)) + .navbar > .slide-button > a:nth-child(28)::before {
+  top: 35%;
+  right: 30%;
+  transform: rotate(-25deg);
+}
+#main:has(.slide:target:nth-child(29)) + .navbar > .slide-button > a:nth-child(28)::after {
+  right: 30%;
+  bottom: 35%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(29)) + .navbar > .slide-button > a:nth-child(30) {
+  margin-right: 1rem;
+}
+#main:has(.slide:target:nth-child(29)) + .navbar > .slide-button > a:nth-child(30)::before {
+  top: 35%;
+  left: 30%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(29)) + .navbar > .slide-button > a:nth-child(30)::after {
+  bottom: 35%;
+  left: 30%;
+  transform: rotate(-25deg);
+}
+
+#main:has(.slide:target:nth-child(30)) + .navbar > .slide-button > a:nth-child(29), #main:has(.slide:target:nth-child(30)) + .navbar > .slide-button > a:nth-child(31) {
+  display: block;
+}
+#main:has(.slide:target:nth-child(30)) + .navbar > .slide-button > a:nth-child(29)::before, #main:has(.slide:target:nth-child(30)) + .navbar > .slide-button > a:nth-child(29)::after, #main:has(.slide:target:nth-child(30)) + .navbar > .slide-button > a:nth-child(31)::before, #main:has(.slide:target:nth-child(30)) + .navbar > .slide-button > a:nth-child(31)::after {
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 4px;
+  font-size: 2rem;
+  text-align: center;
+  content: "";
+  user-select: none;
+  background-color: #fff;
+  border-radius: 1rem;
+}
+#main:has(.slide:target:nth-child(30)) + .navbar > .slide-button > a:nth-child(29) {
+  margin-left: 1rem;
+}
+#main:has(.slide:target:nth-child(30)) + .navbar > .slide-button > a:nth-child(29)::before {
+  top: 35%;
+  right: 30%;
+  transform: rotate(-25deg);
+}
+#main:has(.slide:target:nth-child(30)) + .navbar > .slide-button > a:nth-child(29)::after {
+  right: 30%;
+  bottom: 35%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(30)) + .navbar > .slide-button > a:nth-child(31) {
+  margin-right: 1rem;
+}
+#main:has(.slide:target:nth-child(30)) + .navbar > .slide-button > a:nth-child(31)::before {
+  top: 35%;
+  left: 30%;
+  transform: rotate(25deg);
+}
+#main:has(.slide:target:nth-child(30)) + .navbar > .slide-button > a:nth-child(31)::after {
+  bottom: 35%;
+  left: 30%;
+  transform: rotate(-25deg);
+}
+
+body:has(.navbar):has(#pointer:checked) .slide {
+  cursor: url("src/pointer.svg"), auto;
+}
+
+.dialog-overlay > .dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 2000;
+  display: grid;
+  place-items: center;
+  width: 500px;
+  height: 100px;
+  background-color: #828282;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease-in-out;
+  transform: translate(-50%, -50%) scale(1);
+}
+.dialog-overlay > .dialog a {
+  display: block;
+  width: 30rem;
+  font-size: 1rem;
+  color: #040404;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  background-color: #989696;
+  transition: all 0.2s ease-in-out;
+}
+.dialog-overlay > .dialog a:hover {
+  color: #eb1010;
+}
+
+body:has(*:target) .dialog {
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0);
+}
+body:has(*:target) .dialog-overlay {
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 2vw;
+  font-style: normal;
+  font-weight: 400;
+  font-optical-sizing: auto;
+  background-color: #000000;
+}
+
+#main {
+  position: absolute;
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  background: rgb(221, 221, 221);
+}
+
+.slide {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  display: none;
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  font-size: 100%;
+  user-select: none;
+  transform: translateY(-50%);
+}
+.slide > div {
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+}
+.slide > div > * {
+  position: absolute;
+}
+
+/* クリックされたスライド（アンカーのリンク先）を表示 */
+.slide:target {
+  display: block;
+  /* スライド切り替えアニメーション */
+  animation: slide-in 0.35s 0.35s ease-in-out both;
+}
+@keyframes slide-in {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+  100% {
+    display: block;
+  }
+}
+
+/* スライド切り替え */
+.slide:not(:target) {
+  display: none;
+  animation: slide-out 0.35s ease-in-out both;
+}
+@keyframes slide-out {
+  0% {
+    display: block;
+    opacity: 1;
+  }
+  100% {
+    display: none;
+    opacity: 0;
+  }
+}
+
+#main:target {
+  z-index: 100;
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  grid-row-gap: 2px;
+  grid-column-gap: 2px;
+  width: 100%;
+  height: auto;
+  overflow-y: auto;
+  background-color: black;
+}
+#main:target > .slide {
+  position: relative;
+  inset: auto;
+  z-index: 100;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16/9;
+  font-size: 0.5vw;
+  background-color: rgb(221, 221, 221);
+  transform: none;
+  animation: none;
+}
+#main:target + .navbar {
+  position: fixed;
+  inset: auto;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: transparent;
+  opacity: 1;
+  transition: none;
+}
+#main:target + .navbar > .slide-button {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  z-index: 1000;
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  grid-row-gap: 2px;
+  grid-column-gap: 2px;
+  width: 100%;
+  height: auto;
+  overflow-y: auto;
+  translate: 0 -50%;
+}
+#main:target + .navbar > .slide-button > a {
+  position: relative;
+  inset: auto;
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+  background-color: transparent;
+  border-radius: 0;
+}
+#main:target + .navbar > .tool-button {
+  display: none;
+}
+
+/*# sourceMappingURL=main.css.map */

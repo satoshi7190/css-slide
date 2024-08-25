@@ -1,0 +1,247 @@
+@use '../utils' as utils;
+/* project://index.html */
+
+.slide-doc {
+    input[type='checkbox'] {
+        display: none;
+    }
+
+    > .title {
+        z-index: 1;
+        cursor: pointer;
+        transition: all 0.5s;
+        // translate: -50% -50%;
+        @include utils.slideTitle1-in('アジェンダ', #000000);
+    }
+
+    > .title:has(input[type='checkbox']:checked) {
+        @include utils.slideTitle1('アジェンダ', #000000);
+    }
+
+    > .container {
+        position: absolute;
+        left: 4%;
+        width: 90%;
+        height: 17%;
+
+        cursor: pointer;
+        background-color: #8a8a8a;
+
+        opacity: 0;
+        transition: all 0.5s;
+
+        translate: 0 100%;
+        &:has(input[type='checkbox']:checked) {
+            position: absolute;
+            top: 15%;
+
+            z-index: 10;
+            width: 90%;
+            height: 77%;
+            background-color: #ffffff;
+
+            &::before {
+                top: 10%;
+                color: #000000;
+            }
+
+            > p {
+                opacity: 1;
+            }
+        }
+
+        > p {
+            opacity: 0;
+            transition: all 0.5s;
+        }
+    }
+
+    > .container1 {
+        top: 15%;
+        &::before {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            font-size: 150%;
+            color: #fff;
+            text-overflow: ellipsis;
+
+            content: '　CSSは動的なインタラクションが実装できる';
+            transition: all 0.5s;
+            transform: translate(-50%, -50%);
+        }
+        &:has(input[type='checkbox']:checked) {
+            > p:nth-child(1) {
+                position: absolute;
+                top: 50%;
+                left: 4%;
+                @include utils.addText(
+                    '「hover」や「active」「target」などの擬似クラスで可能',
+                    #aa0088,
+                    180%
+                );
+            }
+        }
+    }
+
+    > .container2 {
+        top: 35%;
+
+        &::before {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            font-size: 150%;
+            color: #fff;
+            text-overflow: ellipsis;
+            content: '　CSSは独自のアニメーションを作れる';
+            transition: all 0.5s;
+            transform: translate(-50%, -50%);
+        }
+
+        &:has(input[type='checkbox']:checked) {
+            > p:nth-child(1) {
+                position: absolute;
+                top: 50%;
+                left: 4%;
+                @include utils.addText(
+                    '「@keyframes」や「transition」で動きを見せれる。',
+                    #aa0088,
+                    180%
+                );
+            }
+        }
+    }
+
+    > .container3 {
+        top: 55%;
+
+        &::before {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            font-size: 150%;
+            color: #fff;
+            text-overflow: ellipsis;
+            content: '　CSSはエフェクト機能がたくさんある';
+            transition: all 0.5s;
+            transform: translate(-50%, -50%);
+        }
+
+        &:has(input[type='checkbox']:checked) {
+            > p:nth-child(1) {
+                position: absolute;
+                top: 50%;
+                left: 4%;
+                @include utils.addText(
+                    '「filter」や「clip-path」など、ぼかしやグレースケール、要素の形状の変更などの視覚的な効果。',
+                    #aa0088,
+                    180%
+                );
+            }
+        }
+    }
+
+    > .container4 {
+        top: 75%;
+        &::before {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            font-size: 150%;
+            color: #fff;
+            text-overflow: ellipsis;
+
+            content: '　CSSはプログラミング的な特性がある';
+            transition: all 0.5s;
+            transform: translate(-50%, -50%);
+        }
+
+        &:has(input[type='checkbox']:checked) {
+            background-color: #ffffff;
+            > p:nth-child(1) {
+                position: absolute;
+                top: 50%;
+                left: 4%;
+                @include utils.addText(
+                    'CSS変数（カスタムプロパティ）に加え「calc()」や「clamp()」などの関数で、値を動的に計算できる。',
+                    #aa0088,
+                    180%
+                );
+            }
+        }
+    }
+
+    &:has(.container1 > input[type='checkbox']:checked) {
+        > .container2,
+        .container3,
+        .container4 {
+            left: -100%;
+            opacity: 0;
+        }
+    }
+
+    &:has(.container2 > input[type='checkbox']:checked) {
+        > .container1,
+        .container3,
+        .container4 {
+            left: -100%;
+            opacity: 0;
+        }
+    }
+
+    &:has(.container3 > input[type='checkbox']:checked) {
+        > .container1,
+        .container2,
+        .container4 {
+            left: -100%;
+            opacity: 0;
+        }
+    }
+
+    &:has(.container4 > input[type='checkbox']:checked) {
+        > .container1,
+        .container2,
+        .container3 {
+            left: -100%;
+            opacity: 0;
+        }
+    }
+
+    @mixin slide-doc-animation-in($delay: 0s) {
+        animation: slide-doc-animation-in 0.3s $delay both;
+    }
+
+    &:has(.title > input[type='checkbox']:checked) > .container1 {
+        @include slide-doc-animation-in(0.3s);
+    }
+
+    &:has(.title > input[type='checkbox']:checked) > .container2 {
+        @include slide-doc-animation-in(0.5s);
+    }
+
+    &:has(.title > input[type='checkbox']:checked) > .container3 {
+        @include slide-doc-animation-in(0.7s);
+    }
+
+    &:has(.title > input[type='checkbox']:checked) > .container4 {
+        @include slide-doc-animation-in(0.9s);
+    }
+
+    @keyframes slide-doc-animation-in {
+        0% {
+            opacity: 0;
+
+            translate: 0 100%;
+        }
+        100% {
+            opacity: 1;
+
+            translate: 0 0%;
+        }
+    }
+}

@@ -1,0 +1,51 @@
+@use '../utils' as utils;
+/* project://index.html */
+
+.slide-whatisthis {
+    input[type='checkbox'] {
+        display: none;
+    }
+    > .text1 {
+        top: 40%;
+        left: 9%;
+        cursor: pointer;
+        transition: all 0.5s;
+        @include utils.addText('このスライドはCSSだけで作りました', #000000, 250%);
+
+        &:has(input:checked) {
+            top: 20%;
+            left: 9%;
+        }
+    }
+
+    > .text2 {
+        top: 50%;
+        left: 10%;
+        transition: all 0.5s 0.3s;
+        transform: translateY(200%);
+
+        > p {
+            margin: 3% 0;
+        }
+
+        > p:nth-child(1) {
+            @include utils.addText(
+                '※スライドテンプレートDEMOをひたすら流すだけです',
+                #000000,
+                170%
+            );
+        }
+
+        > p:nth-child(2) {
+            @include utils.addText('※Scssで書きました', #000000, 170%);
+        }
+
+        > p:nth-child(3) {
+            @include utils.addText('※画像の使用はアリというルールです', #000000, 170%);
+        }
+    }
+
+    &:has(.text1 > input:checked) .text2 {
+        transform: translateY(0%);
+    }
+}

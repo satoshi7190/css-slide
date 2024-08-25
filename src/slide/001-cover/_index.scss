@@ -1,0 +1,124 @@
+@use '../utils' as utils;
+/* project://index.html */
+
+// 表紙
+.slide-cover {
+    // 背景
+    > .slide-overlay {
+        width: 100%;
+        height: 100%;
+        text-align: center;
+
+        background: rgb(2, 0, 36);
+        background: linear-gradient(45deg, #005a87, #923eb9, #009362);
+        background-size: 200% 200%;
+        animation: moveBackground 5s infinite ease;
+        @keyframes moveBackground {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+    }
+    > .ripple {
+        top: 50%;
+        left: 50%;
+        width: 10%;
+        aspect-ratio: 1 / 1;
+        border: 2px solid #000000;
+        border-radius: 50%;
+        opacity: 0;
+        transform: translateY(-50%) translateX(-50%);
+        animation: sectionTitle-ling 3s 0.8s ease-out infinite;
+        @keyframes sectionTitle-ling {
+            0% {
+                width: 0;
+                opacity: 1;
+            }
+
+            100% {
+                width: 150%;
+                opacity: 0;
+            }
+        }
+    }
+    // タイトル
+    > .title1 {
+        top: 30%;
+        width: 100%;
+        font-size: 200%;
+
+        color: #fff;
+        text-align: center;
+        rotate: z 8deg;
+        animation: cover-title-scale 3.5s ease infinite;
+        > p:nth-child(1) {
+            // @include utils.addText('モダンCSSの進化が切り拓く', #fff, 250%);
+        }
+
+        > p:nth-child(2) {
+            // @include utils.addText('プレゼンテーションの新しい世界', #fff, 250%);
+        }
+
+        span {
+            margin: 0 0.3%;
+            font-size: 140%;
+        }
+    }
+
+    // > .title2 {
+    //     top: 10%;
+    //     width: 100%;
+    //     text-align: center;
+
+    //     @include utils.addText('CSS', #fff, 2000%);
+
+    //     animation:
+    //         test 0.3s 0.5s both,
+    //         blur 0.5s 0.5s both;
+    // }
+    @keyframes test {
+        0% {
+            letter-spacing: 1vw;
+            opacity: 0;
+            scale: 10;
+        }
+        100% {
+            letter-spacing: 0;
+            opacity: 1;
+            scale: 1;
+        }
+    }
+    @keyframes cover-title-scale {
+        0% {
+            scale: 1;
+        }
+
+        50% {
+            scale: 1.05;
+        }
+
+        100% {
+            scale: 1;
+        }
+    }
+    @keyframes blur {
+        0% {
+            filter: blur(5px);
+        }
+        100% {
+            filter: blur(0px);
+        }
+    }
+    > .name {
+        top: 80%;
+        left: 6%;
+        text-align: center;
+        @include utils.addText('Satoshi Komatsu', #fff, 150%);
+    }
+}

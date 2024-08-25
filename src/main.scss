@@ -1,0 +1,166 @@
+@charset "UTF-8";
+
+@use 'reset';
+@use 'slide';
+@use 'navbar';
+@use 'dialog';
+@use './slide/utils' as utils;
+
+$font-size: 2vw;
+$switch-duration: 0.35s;
+
+body {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: $font-size;
+    font-style: normal;
+    font-weight: 400;
+    font-optical-sizing: auto;
+    background-color: #000000;
+}
+
+#main {
+    position: absolute;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: utils.$main-base-color;
+}
+
+.slide {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    display: none;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    font-size: 100%;
+    user-select: none;
+    transform: translateY(-50%);
+
+    > div {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        overflow: hidden;
+
+        > * {
+            position: absolute;
+        }
+    }
+}
+
+/* クリックされたスライド（アンカーのリンク先）を表示 */
+.slide:target {
+    display: block;
+
+    /* スライド切り替えアニメーション */
+    animation: slide-in $switch-duration $switch-duration ease-in-out both;
+    @keyframes slide-in {
+        0% {
+            display: none;
+            opacity: 0;
+        }
+
+        100% {
+            display: block;
+        }
+    }
+}
+
+/* スライド切り替え */
+.slide:not(:target) {
+    display: none;
+    animation: slide-out $switch-duration ease-in-out both;
+    @keyframes slide-out {
+        0% {
+            display: block;
+            opacity: 1;
+        }
+
+        100% {
+            display: none;
+            opacity: 0;
+        }
+    }
+}
+
+// スライド一覧表示
+#main:target {
+    z-index: 100;
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    grid-row-gap: 2px;
+    grid-column-gap: 2px;
+
+    width: 100%;
+    height: auto;
+    overflow-y: auto;
+    background-color: black;
+    > .slide {
+        position: relative;
+        inset: auto;
+        z-index: 100;
+        display: block;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        font-size: calc($font-size / 4);
+        background-color: utils.$main-base-color;
+        transform: none;
+        animation: none;
+    }
+
+    + .navbar {
+        position: fixed;
+        inset: auto;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        width: 100%;
+        height: 100%;
+        overflow-x: hidden;
+
+        overflow-y: auto;
+        background-color: transparent;
+        opacity: 1;
+        transition: none;
+
+        > .slide-button {
+            position: fixed;
+            top: 50%;
+            left: 0;
+            z-index: 1000;
+            display: grid;
+            grid-template-rows: repeat(4, 1fr);
+            grid-template-columns: repeat(4, 1fr);
+            grid-row-gap: 2px;
+            grid-column-gap: 2px;
+            width: 100%;
+            height: auto;
+            overflow-y: auto;
+            translate: 0 -50%;
+            > a {
+                position: relative;
+                inset: auto;
+                display: block;
+                width: 100%;
+                height: auto;
+                aspect-ratio: 16 / 9;
+                background-color: transparent;
+
+                border-radius: 0;
+            }
+        }
+
+        > .tool-button {
+            display: none;
+        }
+    }
+}

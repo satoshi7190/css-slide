@@ -1,0 +1,20 @@
+@use '../utils' as utils;
+/* project://index.html */
+
+// NOTE: このファイルはスライドのテンプレートです。
+.slide-name {
+    input[type='checkbox'] {
+        display: none;
+    }
+
+    > .title {
+        @include utils.slideTitle1('タイトル', #000000);
+    }
+
+    > .title:has(input[type='checkbox']:checked) {
+        @include utils.slideTitle1('タイトル', #000000);
+    }
+
+    &:has(.title > input[type='checkbox']:checked) {
+    }
+}

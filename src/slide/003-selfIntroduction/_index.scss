@@ -1,0 +1,108 @@
+@use '../utils' as utils;
+/* project://index.html */
+
+// 自己紹介
+.slide-selfIntroduction {
+    input[type='checkbox'] {
+        display: none;
+    }
+    > .title {
+        z-index: 1;
+        cursor: pointer;
+        transition: all 0.5s;
+        @include utils.slideTitle1-in('自己紹介', #000000);
+    }
+
+    > .title:has(input[type='checkbox']:checked) {
+        @include utils.slideTitle1('自己紹介', #000000);
+    }
+
+    &:has(.title > input[type='checkbox']:checked) {
+        > .icon {
+            opacity: 1;
+            animation: icon 0.5s 0.5s both;
+            @keyframes icon {
+                0% {
+                    filter: blur(10px);
+                    opacity: 0;
+
+                    scale: 1.2;
+                }
+                80% {
+                    opacity: 1;
+                }
+            }
+        }
+
+        > .description {
+            > p {
+                margin-bottom: 5%;
+
+                $texts: '株式会社MIERUNE' 'フロントエンドエンジニア' '岐阜県岐阜市出身' 'CSSが好き';
+
+                @for $i from 1 through length($texts) {
+                    &:nth-child(#{$i}) {
+                        $start: 0;
+                        @include utils.addText(nth($texts, $i), #000000, 150%);
+                        &::before {
+                            animation: slide-selfIntroduction-in 0.5s #{1 + $i * 0.2}s both;
+                        }
+                        &::after {
+                            animation: text 0.5s #{1 + $i * 0.2}s both;
+                        }
+                    }
+                }
+
+                &::before {
+                    @keyframes slide-selfIntroduction-in {
+                        0% {
+                            opacity: 0;
+                        }
+                    }
+                }
+
+                &:after {
+                    position: absolute;
+                    z-index: 1;
+                    width: 100%;
+                    height: 20%;
+                    content: '';
+                    background-color: #0000005a;
+                    translate: 0 -1%;
+                    @keyframes text {
+                        0% {
+                            left: 0;
+                            width: 0%;
+                        }
+                        50% {
+                            left: 0;
+                            width: 100%;
+                        }
+                        100% {
+                            left: 100%;
+                            width: 0%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    > .icon {
+        top: 27%;
+        left: 10%;
+        width: 30%;
+        aspect-ratio: 1 / 1;
+        background: url('src/slide/003-selfIntroduction/icon.png') no-repeat center center / cover;
+        // background-color: #000000;
+        border-radius: 50%;
+        opacity: 0;
+    }
+
+    .description {
+        top: 28%;
+        right: 2%;
+        width: 50%;
+        height: auto;
+    }
+}

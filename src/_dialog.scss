@@ -1,0 +1,46 @@
+.dialog-overlay {
+    > .dialog {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        z-index: 2000;
+        display: grid;
+        place-items: center;
+        width: 500px;
+        height: 100px;
+        background-color: #828282;
+        border-radius: 0.5rem;
+        transition: all 0.3s ease-in-out;
+        transform: translate(-50%, -50%) scale(1);
+
+        a {
+            display: block;
+            width: 30rem;
+            font-size: 1rem;
+            color: #040404;
+            text-align: center;
+            cursor: pointer;
+            user-select: none;
+            background-color: #989696;
+            transition: all 0.2s ease-in-out;
+
+            &:hover {
+                color: #eb1010;
+            }
+        }
+    }
+}
+
+body:has(*:target) {
+    .dialog {
+        pointer-events: none;
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0);
+    }
+
+    .dialog-overlay {
+        z-index: -1;
+        pointer-events: none;
+        opacity: 0;
+    }
+}

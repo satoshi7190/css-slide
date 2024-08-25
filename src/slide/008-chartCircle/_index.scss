@@ -1,0 +1,224 @@
+@use '../utils' as utils;
+/* project://index.html */
+
+// 円グラフ
+@property --chart-percentage {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 0%;
+}
+
+.slide-chartCircle {
+    input[type='checkbox'] {
+        display: none;
+    }
+
+    > .title {
+        z-index: 1;
+        cursor: pointer;
+        transition: all 0.5s;
+        @include utils.slideTitle1-in('円グラフ', #000000);
+    }
+
+    > .title:has(input[type='checkbox']:checked) {
+        @include utils.slideTitle1('円グラフ', #000000);
+    }
+
+    &:has(.title > input[type='checkbox']:checked) {
+        > .circle-chart {
+            opacity: 1;
+        }
+    }
+
+    .circle-chart {
+        position: absolute;
+        bottom: 20%;
+        left: 35%;
+        display: grid;
+        place-items: center;
+        width: 25%;
+        aspect-ratio: 1 / 1;
+        opacity: 0;
+        transition: all 0.5s;
+
+        .circle {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+
+        .small {
+            width: 70%;
+            height: 70%;
+            cursor: pointer;
+            background: #8a8a8a;
+            transition: all 0.5s;
+        }
+        .main {
+            pointer-events: none;
+
+            opacity: 0;
+        }
+
+        .counter {
+            position: absolute;
+            font-size: 200%;
+            font-weight: bold;
+            font-variant-numeric: tabular-nums;
+            pointer-events: none;
+
+            opacity: 0;
+        }
+        .counter::after {
+            content: counter(countup) '%';
+        }
+
+        &:has(.small > input[type='checkbox']:checked) {
+            .small {
+                background: utils.$main-base-color;
+            }
+        }
+    }
+
+    .chart1 {
+        left: 3%;
+        &:has(.small > input[type='checkbox']:checked) {
+            .main {
+                background: conic-gradient(
+                    rgb(57, 113, 162) 0% var(--chart-percentage),
+                    utils.$main-base-color var(--chart-percentage) 100%
+                );
+                opacity: 1;
+                animation: chart-percentage1 1s both;
+                --chart-percentage: 46%;
+                @keyframes chart-percentage1 {
+                    from {
+                        --chart-percentage: 0%;
+                    }
+
+                    to {
+                        --chart-percentage: 46%;
+                    }
+                }
+            }
+            .counter {
+                counter-reset: countup var(--count);
+                opacity: 1;
+                animation:
+                    slide-chartCircle-count1 1s,
+                    chart-percentage-count-complete1 0.3s 1s both;
+                --count: 46;
+                @keyframes slide-chartCircle-count1 {
+                    from {
+                        --count: 0;
+                    }
+                    to {
+                        --count: 46;
+                    }
+                }
+
+                @keyframes chart-percentage-count-complete1 {
+                    to {
+                        color: rgb(57, 113, 162);
+                        transform: scale(1.5);
+                    }
+                }
+            }
+        }
+    }
+
+    .chart2 {
+        left: 35%;
+        &:has(.small > input[type='checkbox']:checked) {
+            .main {
+                background: conic-gradient(
+                    rgb(73, 162, 57) 0% var(--chart-percentage),
+                    utils.$main-base-color var(--chart-percentage) 100%
+                );
+                opacity: 1;
+                animation: chart-percentage2 1s both;
+                --chart-percentage: 72%;
+                @keyframes chart-percentage2 {
+                    from {
+                        --chart-percentage: 0%;
+                    }
+
+                    to {
+                        --chart-percentage: 72%;
+                    }
+                }
+            }
+            .counter {
+                counter-reset: countup var(--count);
+                opacity: 1;
+                animation:
+                    slide-chartCircle-count2 1s,
+                    chart-percentage-count-complete2 0.3s 1s both;
+                --count: 72;
+                @keyframes slide-chartCircle-count2 {
+                    from {
+                        --count: 0;
+                    }
+                    to {
+                        --count: 72;
+                    }
+                }
+
+                @keyframes chart-percentage-count-complete2 {
+                    to {
+                        color: rgb(73, 162, 57);
+                        transform: scale(1.5);
+                    }
+                }
+            }
+        }
+    }
+
+    .chart3 {
+        left: 67%;
+        &:has(.small > input[type='checkbox']:checked) {
+            .main {
+                background: conic-gradient(
+                    rgb(162, 73, 57) 0% var(--chart-percentage),
+                    utils.$main-base-color var(--chart-percentage) 100%
+                );
+                opacity: 1;
+                animation: chart-percentage3 1s both;
+                --chart-percentage: 90%;
+                @keyframes chart-percentage3 {
+                    from {
+                        --chart-percentage: 0%;
+                    }
+
+                    to {
+                        --chart-percentage: 90%;
+                    }
+                }
+            }
+            .counter {
+                counter-reset: countup var(--count);
+                opacity: 1;
+                animation:
+                    slide-chartCircle-count3 1s,
+                    chart-percentage-count-complete3 0.3s 1s both;
+                --count: 90;
+                @keyframes slide-chartCircle-count3 {
+                    from {
+                        --count: 0;
+                    }
+                    to {
+                        --count: 90;
+                    }
+                }
+
+                @keyframes chart-percentage-count-complete3 {
+                    to {
+                        color: rgb(162, 73, 57);
+                        transform: scale(1.5);
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,286 @@
+@use '../utils' as utils;
+/* project://index.html */
+
+// グラフの値
+@property --count {
+    syntax: '<integer>';
+    inherits: false;
+    initial-value: 0;
+}
+
+.slide-chartBar {
+    input[type='checkbox'] {
+        display: none;
+    }
+
+    > .title {
+        z-index: 1;
+        cursor: pointer;
+        transition: all 0.5s;
+        @include utils.slideTitle1-in('棒グラフ', #000000);
+    }
+
+    > .title:has(input[type='checkbox']:checked) {
+        @include utils.slideTitle1('棒グラフ', #000000);
+    }
+
+    > .chart-bar {
+        position: absolute;
+        bottom: 15%;
+        left: 13%;
+        display: flex;
+        gap: 10%;
+        align-items: flex-end;
+        justify-content: center;
+        width: 8%;
+        height: 65%;
+        pointer-events: none;
+        pointer-events: auto;
+
+        opacity: 0;
+
+        > .bar {
+            position: absolute;
+            width: 100%;
+            background-color: #585858;
+            transition: all 0.5s;
+        }
+
+        > .year {
+            @include utils.addText('2021', #000000, 100%);
+            position: absolute;
+            top: 100%;
+            cursor: pointer;
+            // transition: all 0.5s;
+        }
+
+        > .counter {
+            position: absolute;
+            bottom: 0%;
+            font-size: 150%;
+            font-weight: bold;
+            font-variant-numeric: tabular-nums;
+            transition: all 0.5s;
+        }
+    }
+
+    .chart-bar1 {
+        left: 5%;
+        > .bar {
+            height: 0%;
+        }
+        > .year {
+            &::before {
+                content: '2020';
+            }
+        }
+        &:has(.year > input[type='checkbox']:checked) {
+            > .bar {
+                height: 20%;
+            }
+
+            > .counter {
+                bottom: 20%;
+                --count: 20;
+                counter-reset: countup var(--count);
+                animation: chart-percentage-20 0.5s;
+                @keyframes chart-percentage-20 {
+                    from {
+                        --count: 0;
+                    }
+
+                    to {
+                        --count: 20;
+                    }
+                }
+                &::after {
+                    content: counter(countup) '%';
+                }
+            }
+        }
+    }
+
+    .chart-bar2 {
+        left: 17.5%;
+        > .bar {
+            height: 0;
+        }
+
+        > .year {
+            &::before {
+                content: '2021';
+            }
+        }
+
+        &:has(.year > input[type='checkbox']:checked) {
+            > .bar {
+                height: 37%;
+            }
+
+            > .counter {
+                bottom: 37%;
+                --count: 37;
+                counter-reset: countup var(--count);
+                animation: chart-percentage-37 0.7s;
+                @keyframes chart-percentage-37 {
+                    from {
+                        --count: 0;
+                    }
+                    to {
+                        --count: 37;
+                    }
+                }
+                &::after {
+                    content: counter(countup) '%';
+                }
+            }
+        }
+    }
+
+    .chart-bar3 {
+        left: 30%;
+        > .bar {
+            height: 0%;
+        }
+
+        > .year {
+            &::before {
+                content: '2022';
+            }
+        }
+
+        &:has(.year > input[type='checkbox']:checked) {
+            > .bar {
+                height: 54%;
+            }
+
+            > .counter {
+                bottom: 54%;
+                --count: 54;
+                counter-reset: countup var(--count);
+                animation: chart-percentage-54 0.7s;
+                @keyframes chart-percentage-54 {
+                    from {
+                        --count: 0;
+                    }
+                    to {
+                        --count: 54;
+                    }
+                }
+                &::after {
+                    content: counter(countup) '%';
+                }
+            }
+        }
+    }
+
+    .chart-bar4 {
+        left: 42.5%;
+        > .bar {
+            height: 0%;
+        }
+
+        > .year {
+            &::before {
+                content: '2023';
+            }
+        }
+
+        &:has(.year > input[type='checkbox']:checked) {
+            > .bar {
+                height: 69%;
+            }
+
+            > .counter {
+                bottom: 69%;
+                --count: 69;
+                counter-reset: countup var(--count);
+                animation: chart-percentage-69 0.7s;
+                @keyframes chart-percentage-69 {
+                    from {
+                        --count: 0;
+                    }
+                    to {
+                        --count: 69;
+                    }
+                }
+                &::after {
+                    content: counter(countup) '%';
+                }
+            }
+        }
+    }
+
+    .chart-bar5 {
+        left: 55%;
+        > .bar {
+            height: 0%;
+        }
+
+        > .year {
+            &::before {
+                content: '2024';
+            }
+        }
+
+        &:has(.year > input[type='checkbox']:checked) {
+            > .bar {
+                height: 94%;
+                background-color: rgb(209, 70, 0);
+            }
+
+            > .counter {
+                bottom: 94%;
+                font-size: 180%;
+                color: rgb(209, 70, 0);
+                counter-reset: countup var(--count);
+                animation: chart-percentage-94 0.7s;
+                --count: 94;
+                @keyframes chart-percentage-94 {
+                    from {
+                        --count: 0;
+                    }
+                    to {
+                        --count: 94;
+                    }
+                }
+                &::after {
+                    content: counter(countup) '%';
+                }
+            }
+        }
+    }
+
+    > .text {
+        position: absolute;
+        top: 60%;
+        right: -11%;
+
+        font-size: 150%;
+        font-weight: bold;
+        font-variant-numeric: tabular-nums;
+        opacity: 0;
+        transition: all 0.5s 0.3s;
+        transform: translate(-50%, -50%);
+        transform-origin: 0 0;
+        scale: 0.5;
+
+        > p:nth-child(1) {
+            @include utils.addText('2024年には', #000000, 100%);
+        }
+
+        > p:nth-child(2) {
+            @include utils.addText('94%シェア獲得!', rgb(209, 70, 0), 130%);
+        }
+    }
+
+    &:has(.title > input[type='checkbox']:checked) > .chart-bar {
+        opacity: 1;
+        transition: all 0.5s;
+    }
+
+    &:has(.chart-bar5 > .year > input[type='checkbox']:checked) > .text {
+        opacity: 1;
+        scale: 1;
+    }
+}
