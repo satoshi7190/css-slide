@@ -373,7 +373,7 @@ textarea:not([rows]) {
     left: 10%;
     width: 30%;
     aspect-ratio: 1/1;
-    background: url(icon-DhKO3nVc.png) no-repeat center center/cover;
+    background: url(./icon-DhKO3nVc.png) no-repeat center center/cover;
     border-radius: 50%;
     opacity: 0;
 }
