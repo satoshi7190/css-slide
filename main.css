@@ -2122,11 +2122,7 @@ textarea:not([rows]) {
   justify-content: space-between;
   width: 100%;
   height: 4rem;
-  opacity: 0;
   transition: opacity 0.3s ease-in-out;
-}
-.navbar:hover {
-  opacity: 1;
 }
 .navbar > .slide-button {
   display: flex;
